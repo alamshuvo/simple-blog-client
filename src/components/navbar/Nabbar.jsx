@@ -13,7 +13,7 @@ import {
 
 import { NavLink } from "react-router-dom";
 const Nabbar = () => {
-    const user=1;
+    const user=0;
   const navlink = (
     <>
       <li>
