@@ -1,33 +1,36 @@
-import { Button, Input } from "@nextui-org/react";
+import { Input } from "@nextui-org/react";
 import { useState } from "react";
-// import { EyeFilledIcon } from "./EyeFilledIcon";
-// import { EyeSlashFilledIcon } from "./EyeSlashFilledIcon";
+import { Link } from "react-router-dom";
 import { IoEyeOffSharp } from "react-icons/io5";
 import { FaEye } from "react-icons/fa6";
-import { Link } from "react-router-dom";
-import { FcGoogle } from "react-icons/fc";
-import { FaArrowRight } from "react-icons/fa";
 
-const Login = () => {
-  const [isVisible, setIsVisible] = useState(false);
+
+const Signup = () => {
+    const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => setIsVisible(!isVisible);
-  return (
-    <div className="bg-[#F3F6F3] ">
+    return (
+        <div className="bg-[#F3F6F3] ">
       <h1 className="md:text-3xl text-2xl  text-center font-bold text-[#00AC97]">
         {" "}
-        Login Now
+        SignUp
       </h1>
       <div className="w-full min-h-screen  flex justify-center md:flex-row flex-col ">
         <div className="md:w-1/2 ">
-          <img
-            src="https://i.ibb.co/SK04zfy/Cool-Kids-High-Tech.png"
-            alt=""
-            className="w-full"
-          />
+        <div className="w-full">
+        <iframe src="https://lottie.host/embed/68f6700a-9828-46c0-b6ab-16f566a0f36d/xgQyMror0E.json" className="w-full min-h-screen"></iframe> 
+        </div>
         </div>
         <div className="md:w-1/2 p-3">
           <form className="bg-white opacity-4 p-5 rounded-lg shadow-lime-100 mt-5">
+          <div className="w-full p-5">
+              <label htmlFor="name">Name</label>
+              <Input type="text" name="name" placeholder="Enter Your Name" />
+            </div>
+          <div className="w-full p-5">
+              <label htmlFor="name">Photo Url</label>
+              <Input type="text" name="photo" placeholder="Photo Url" />
+            </div>
             <div className="w-full p-5">
               <label htmlFor="email">Email</label>
               <Input type="email" name="email" placeholder="Enter Your Email" />
@@ -61,26 +64,17 @@ const Login = () => {
               />
             </div>
           </form>
-          <div>
-            <p>Login With Another way</p>
-            <div className="flex justify-start items-center">
-            Google Login  <FaArrowRight />
-              <Button>
-               
-                <FcGoogle className="text-3xl" />
-              </Button>
-            </div>
-          </div>
+         
           <p>
-            New Here ?{" "}
-            <Link className="text-[#00AC97]" to={"/registation"}>
-              Sign Up
+            Already Have An Account ?{" "}
+            <Link className="text-[#00AC97]" to={"/login"}>
+              Log in
             </Link>
           </p>
         </div>
       </div>
     </div>
-  );
+    );
 };
 
-export default Login;
+export default Signup;
