@@ -84,7 +84,7 @@ const Nabbar = () => {
       <Navbar>
         <NavbarBrand>
           <Link href="/">
-            <p className="font-bold text-inherit text-[#14261C] md:text-3xl">Simple Blog</p>
+            <p className="font-bold text-inherit text-[#14261C] md:text-3xl ">Simple Blog</p>
           </Link>
         </NavbarBrand>
 
