@@ -8,6 +8,7 @@ const Home = () => {
             Simple Blog | Home 
         </title>
       </Helmet>
+     <h1 className="  ">this is home</h1>
     </div>
   );
 };
