@@ -2,7 +2,6 @@ import {
   Navbar,
   NavbarBrand,
   NavbarContent,
-  NavbarItem,
   Link,
   DropdownItem,
   DropdownTrigger,
@@ -21,7 +20,7 @@ const Nabbar = () => {
         <NavLink
           className={({ isActive }) =>
             isActive
-              ? " p-2 hover:bg-[#a29bfe] hover:text-[#F1EEDC]  rounded-md "
+              ? " p-2 hover:bg-[#00d2d3] hover:text-[#F1EEDC]  rounded-md "
               : "text-center  font-normal gap-6 text-[18px]"
           }
           to={"/"}
@@ -34,7 +33,7 @@ const Nabbar = () => {
         <NavLink
           className={({ isActive }) =>
             isActive
-              ? " p-2 hover:bg-[#a29bfe] hover:text-[#F1EEDC]  rounded-md "
+              ? " p-2 hover:bg-[#00d2d3] hover:text-[#F1EEDC]  rounded-md "
               : "text-center  font-normal gap-6 text-[18px]"
           }
           to={"/"}
@@ -46,7 +45,7 @@ const Nabbar = () => {
         <NavLink
           className={({ isActive }) =>
             isActive
-              ? " p-2 hover:bg-[#a29bfe] hover:text-[#F1EEDC]  rounded-md "
+              ? " p-2 hover:bg-[#00d2d3] hover:text-[#F1EEDC]  rounded-md "
               : "text-center  font-normal gap-6 text-[18px]"
           }
           to={"/"}
@@ -58,7 +57,7 @@ const Nabbar = () => {
         <NavLink
           className={({ isActive }) =>
             isActive
-              ? " p-2 hover:bg-[#a29bfe] hover:text-[#F1EEDC]  rounded-md "
+              ? " p-2 hover:bg-[#00d2d3] hover:text-[#F1EEDC]  rounded-md "
               : "text-center  font-normal gap-6 text-[18px]"
           }
           to={"/"}
@@ -70,7 +69,7 @@ const Nabbar = () => {
         <NavLink
           className={({ isActive }) =>
             isActive
-              ? " p-2 hover:bg-[#a29bfe] hover:text-[#F1EEDC]  rounded-md "
+              ? " p-2 hover:bg-[#00d2d3] hover:text-[#F1EEDC]  rounded-md "
               : "text-center  font-normal gap-6 text-[18px]"
           }
           to={"/"}
@@ -145,10 +144,10 @@ const Nabbar = () => {
                
               </DropdownMenu>
             </Dropdown>
-            <Link href="/logout" className="bg-[#00d2d3] text-white rounded-lg  hover:bg-[#a29bfe] hover:text-[#F1EEDC] "><Button >Logout</Button></Link>
+            <Link href="/logout" className="bg-[#00d2d3] text-white rounded-lg  hover:bg-[#00d2d3] hover:text-[#F1EEDC] "><Button >Logout</Button></Link>
           </NavbarContent>:<NavbarContent justify="end">
-            <Link className="bg-[#00d2d3] text-white rounded-lg  hover:bg-[#a29bfe] hover:text-[#F1EEDC] " href="/login"><Button>Login</Button></Link>
-          <Link href="/registation" className="bg-[#00d2d3] text-white rounded-lg  hover:bg-[#a29bfe] hover:text-[#F1EEDC] ">  <Button>Registaion</Button></Link>
+            <Link className="bg-[#00d2d3] text-white rounded-lg  hover:bg-[#00d2d3] hover:text-[#F1EEDC] " href="/login"><Button>Login</Button></Link>
+          <Link href="/registation" className="bg-[#00d2d3] text-white rounded-lg  hover:bg-[#00d2d3] hover:text-[#F1EEDC] ">  <Button>Registaion</Button></Link>
           </NavbarContent>
         }
       </Navbar>
