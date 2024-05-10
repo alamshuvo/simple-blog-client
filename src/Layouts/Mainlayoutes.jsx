@@ -7,7 +7,7 @@ const Mainlayoutes = () => {
     return (
         <div className="font-kanit  ">
         <Nabbar></Nabbar>
-        <div className="min-h-screen container mx-auto">
+        <div className="min-h-screen ">
         <Outlet></Outlet>
         </div>
         <Footer></Footer>

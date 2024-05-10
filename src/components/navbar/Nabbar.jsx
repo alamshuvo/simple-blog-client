@@ -80,11 +80,11 @@ const Nabbar = () => {
     </>
   );
   return (
-    <div className="font-kanit bg-[#c8d6e5]">
+    <div className="font-kanit bg-[#F3F6F3]">
       <Navbar>
         <NavbarBrand>
           <Link href="/">
-            <p className="font-bold text-inherit text-[#5f27cd] md:text-3xl">Simple Blog</p>
+            <p className="font-bold text-inherit text-[#14261C] md:text-3xl">Simple Blog</p>
           </Link>
         </NavbarBrand>
 
@@ -95,7 +95,7 @@ const Nabbar = () => {
         {
             user?<NavbarContent as="div" justify="end" className="">
             
-            <Dropdown placement="bottom" className="border border-2-red md;p-4 p-2 shadow-lg">
+            <Dropdown placement="bottom" className="border border-2-red md;p-4 p-2 shadow-lg font-kanit">
               <DropdownTrigger>
                 <Avatar
                  referrerPolicy="no-referrer"
