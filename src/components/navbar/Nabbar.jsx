@@ -95,7 +95,7 @@ const Nabbar = () => {
         {
             user?<NavbarContent as="div" justify="end" className="">
             
-            <Dropdown placement="bottom" className="border border-2-red md;p-4 p-2 shadow-lg font-kanit">
+            <Dropdown placement="bottom" className="border border-2-red md;p-4 p-2 shadow-lg font-kanit   backdrop-invert-[80%]   bg-white/70">
               <DropdownTrigger>
                 <Avatar
                  referrerPolicy="no-referrer"
@@ -138,7 +138,7 @@ const Nabbar = () => {
                 </DropdownItem>
                
                     {
-                        user?<DropdownItem ></DropdownItem>:<DropdownItem className="bg-[#00d2d3] text-white" color="danger"><Link href="/registation"><Button>Registation</Button></Link></DropdownItem>
+                        user?<DropdownItem ></DropdownItem>:<DropdownItem className="bg-[#00d2d3] text-white" color="danger"><Link href="/registation"><Button>Signup</Button></Link></DropdownItem>
                     }
                
                
@@ -147,7 +147,7 @@ const Nabbar = () => {
             <Link href="/logout" className="bg-[#00d2d3] text-white rounded-lg  hover:bg-[#00d2d3] hover:text-[#F1EEDC] "><Button >Logout</Button></Link>
           </NavbarContent>:<NavbarContent justify="end">
             <Link className="bg-[#00d2d3] text-white rounded-lg  hover:bg-[#00d2d3] hover:text-[#F1EEDC] " href="/login"><Button>Login</Button></Link>
-          <Link href="/registation" className="bg-[#00d2d3] text-white rounded-lg  hover:bg-[#00d2d3] hover:text-[#F1EEDC] ">  <Button>Registaion</Button></Link>
+          <Link href="/registation" className="bg-[#00d2d3] text-white rounded-lg  hover:bg-[#00d2d3] hover:text-[#F1EEDC] ">  <Button>Signup</Button></Link>
           </NavbarContent>
         }
       </Navbar>
