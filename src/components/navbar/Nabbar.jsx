@@ -55,7 +55,7 @@ const Nabbar = () => {
               ? " p-2 hover:bg-[#00d2d3] hover:text-[#F1EEDC]  rounded-md "
               : "text-center  font-normal gap-6 text-[18px]"
           }
-          to={"/"}
+          to={"/allblogs"}
         >
           All Blogs
         </NavLink>
@@ -67,7 +67,7 @@ const Nabbar = () => {
               ? " p-2 hover:bg-[#00d2d3] hover:text-[#F1EEDC]  rounded-md "
               : "text-center  font-normal gap-6 text-[18px]"
           }
-          to={"/"}
+          to={"/featuredblog"}
         >
           Featured Blogs
         </NavLink>
@@ -79,7 +79,7 @@ const Nabbar = () => {
               ? " p-2 hover:bg-[#00d2d3] hover:text-[#F1EEDC]  rounded-md "
               : "text-center  font-normal gap-6 text-[18px]"
           }
-          to={"/"}
+          to={"/wishlist"}
         >
           Wishlist
         </NavLink>
