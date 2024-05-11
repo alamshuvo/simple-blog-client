@@ -3,11 +3,11 @@ import { Typewriter } from "react-simple-typewriter";
 const Banner = () => {
   const handleType = (count, number) => {
     // access word count number
-    console.log(count);
+    // console.log(count);
   };
 
   const handleDone = () => {
-    console.log(`Done after 5 loops!`);
+    // console.log(`Done after 5 loops!`);
   };
   return (
     <div>
@@ -29,7 +29,7 @@ const Banner = () => {
                 "Welcome to Our Simple Blog: Your Gateway to Knowledge,
                 Inspiration, and Connection! Dive into a world of endless
                 possibilities as you explore our diverse collection of articles,
-                insights, and stories. Whether you're seeking expert advice,
+                insights, and stories. Whether you are seeking expert advice,
                 creative inspiration, or thought-provoking discussions, our blog
                 hub is your go-to destination.
               </p>

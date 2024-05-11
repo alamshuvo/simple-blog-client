@@ -1,7 +1,7 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 // import app from "../../Firebase/Firebase.config";
-import { GoogleAuthProvider } from "firebase/auth/cordova";
+// import { GoogleAuthProvider } from "firebase/auth/cordova";
 
 import { getAuth } from "firebase/auth";
 import { app } from "../../Firebase/Firebase.config";
@@ -41,6 +41,19 @@ const signOutproile=()=>{
      signOut(auth)
    
 }
+// update profile user 
+const updateProfileUser=(name,img)=>{
+    return  updateProfile(auth.currentUser, {
+         displayName: name, 
+         photoURL: img,
+       }).then(() => {
+         // Profile updated!
+         // ...
+       }).catch((error) => {
+         // An error occurred
+         // ...
+       });
+ }
 
 //  Auth state change 
 useEffect(()=>{
@@ -61,6 +74,7 @@ useEffect(()=>{
         loginUser,
         signinWithGoogle,
         signOutproile,
+        updateProfileUser,
         user,
         loading,
         error

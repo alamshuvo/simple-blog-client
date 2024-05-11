@@ -16,6 +16,11 @@ import { NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 const Nabbar = () => {
     const { user, loading, signOutproile } = useContext(AuthContext);
+    console.log(user);
+
+    const handleSignOut=()=>{
+      signOutproile()
+    }
   const navlink = (
     <>
       <li>
@@ -105,9 +110,10 @@ const Nabbar = () => {
                   as="button"
                   className="transition-transform "
                   color="secondary"
-                  name="Jason Hughes"
+                  name={user.name}
                   size="sm"
-                  src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+                  src={user.photoURL
+                  }
                   
                 />
                 
@@ -115,7 +121,8 @@ const Nabbar = () => {
               <DropdownMenu className="" aria-label="Profile Actions" variant="flat">
                 <DropdownItem key="profile" className="h-14 gap-2">
                   <p className="font-semibold">Signed in as</p>
-                  <p className="font-semibold">zoey@example.com</p>
+                  <p className="font-semibold">{user.email}</p>
+                  <p className="font-semibold">{user.displayName}</p>
                 </DropdownItem>
                 <DropdownItem href="/" key="Home">
                   Home
@@ -135,7 +142,7 @@ const Nabbar = () => {
   
                <DropdownItem key="logout" className="bg-[#00d2d3] text-white" color="danger">
                   {
-                      user?<Link href="/logout"><Button color="danger" >Logout</Button></Link>:<Link href="/login"><Button color="danger">Login</Button>
+                      user?<Link><Button onClick={handleSignOut} color="danger" >Logout</Button></Link>:<Link href="/login"><Button color="danger">Login</Button>
                       </Link>                }
                 </DropdownItem>
                
@@ -146,7 +153,7 @@ const Nabbar = () => {
                
               </DropdownMenu>
             </Dropdown>
-            <Link href="/logout" className="bg-[#00d2d3] text-white rounded-lg  hover:bg-[#00d2d3] hover:text-[#F1EEDC] "><Button >Logout</Button></Link>
+            <Link  className="bg-[#00d2d3] text-white rounded-lg  hover:bg-[#00d2d3] hover:text-[#F1EEDC] "><Button onClick={handleSignOut} >Logout</Button></Link>
           </NavbarContent>:<NavbarContent justify="end">
             <Link className="bg-[#00d2d3] text-white rounded-lg  hover:bg-[#00d2d3] hover:text-[#F1EEDC] " href="/login"><Button>Login</Button></Link>
           <Link href="/registation" className="bg-[#00d2d3] text-white rounded-lg  hover:bg-[#00d2d3] hover:text-[#F1EEDC] ">  <Button>Signup</Button></Link>
