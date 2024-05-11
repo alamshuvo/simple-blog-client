@@ -43,7 +43,7 @@ const Nabbar = () => {
               ? " p-2 hover:bg-[#00d2d3] hover:text-[#F1EEDC]  rounded-md "
               : "text-center  font-normal gap-6 text-[18px]"
           }
-          to={"/"}
+          to={"/addblog"}
         >
           Add Blogs
         </NavLink>
