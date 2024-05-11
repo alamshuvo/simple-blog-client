@@ -10,13 +10,18 @@ const Newslatter = () => {
         const user={name:name,
         email:email};
         console.log(user);
+       if (user.email||user.name) {
         Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: `Your work has been saved ${user.name} & ${user.email}`,
-            showConfirmButton: false,
-            timer: 1500
-          });
+          position: "top-end",
+          icon: "success",
+          title: `Your work has been saved ${user.name} & ${user.email}`,
+          showConfirmButton: false,
+          timer: 1500
+        });
+       }
+       else{
+        <p>Please Provide valid data</p>
+       }
 
     }
   return (
@@ -31,11 +36,11 @@ const Newslatter = () => {
             <div className="flex md:flex-row flex-col gap-5 justify-center items-center p-5 min-h-96">
             <div className="bg-transparent md:w-1/3 w-full rounded-lg ">
               <label htmlFor="email">Email</label>
-              <Input type="email" name="email" placeholder="Enter Your Email" className="bg-teal-50 rounded-lg"/>
+              <Input required type="email" name="email" placeholder="Enter Your Email" className="bg-teal-50 rounded-lg"/>
               </div>
               <div className="md:w-1/3 w-full rounded-lg ">
               <label htmlFor="name">Name</label>
-              <Input type="name" name="name" placeholder="Enter Your Name" className="rounded-lg bg-teal-50" />
+              <Input required type="name" name="name" placeholder="Enter Your Name" className="rounded-lg bg-teal-50" />
               </div>
               <div className=" md:w-1/3 w-full rounded-lg ">
               <input
