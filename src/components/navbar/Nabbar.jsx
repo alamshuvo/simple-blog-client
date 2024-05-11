@@ -10,10 +10,12 @@ import {
   Avatar,
   Button,
 } from "@nextui-org/react";
+import { useContext } from "react";
 
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 const Nabbar = () => {
-    const user=0;
+    const { user, loading, signOutproile } = useContext(AuthContext);
   const navlink = (
     <>
       <li>

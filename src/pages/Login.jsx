@@ -20,11 +20,7 @@ const Login = () => {
       </h1>
       <div className="w-full min-h-screen  flex justify-center md:flex-row flex-col ">
         <div className="md:w-1/2 ">
-          <img
-            src="https://i.ibb.co/SK04zfy/Cool-Kids-High-Tech.png"
-            alt=""
-            className="w-full"
-          />
+        <iframe src="https://lottie.host/embed/43707db3-b2ba-41fc-a178-59f06c17598e/11YgZ3pIaN.json" className="w-full min-h-screen"></iframe>
         </div>
         <div className="md:w-1/2 p-3">
           <form className="bg-white opacity-4 p-5 rounded-lg shadow-lime-100 mt-5">
