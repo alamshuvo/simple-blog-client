@@ -87,7 +87,7 @@ const Nabbar = () => {
     </>
   );
   return (
-    <div className="font-kanit bg-[#F3F6F3]">
+    <div className="font-kanit bg-[#F3F6F3] sticky top-0">
       <Navbar>
         <NavbarBrand>
           <Link href="/">

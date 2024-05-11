@@ -6,4 +6,5 @@
   height: 7px;
   background: #30c7b5;
   transform-origin: 0%;
+  z-index: 100;
 }
