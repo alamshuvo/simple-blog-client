@@ -32,7 +32,6 @@ const Nabbar = () => {
           }
           to={"/"}
         >
-          {" "}
           Home
         </NavLink>
       </li>

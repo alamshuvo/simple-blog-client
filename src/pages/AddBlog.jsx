@@ -20,7 +20,11 @@ const handleAddBlog=(e)=>{
   const long=form.long.value;
   const photo=form.photo.value;
   const userEmail=user?.email;
-  const blog={title,categories,short,long,photo,userEmail};
+  const currentDate = new Date();
+const formattedDate = currentDate.toLocaleString();
+console.log(currentDate);
+
+  const blog={title,categories,short,long,photo,userEmail,formattedDate};
   console.log(blog);
   axios.post('http://localhost:5000/blog',blog)
   .then(res=>{console.log(res.data);})
