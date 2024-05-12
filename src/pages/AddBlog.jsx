@@ -1,7 +1,16 @@
 import { Input, Textarea } from "@nextui-org/react";
+import { useContext } from "react";
+import { AuthContext } from "../components/AuthProvider/AuthProvider";
+import axios from "axios";
+// import axios from "axios";
 
 const AddBlog = () => {
+const {user}=useContext(AuthContext)
+
+
+
 const handleAddBlog=(e)=>{
+  
   e.preventDefault();
   const form=e.target;
   const title=form.title.value;
@@ -9,10 +18,14 @@ const handleAddBlog=(e)=>{
   const short=form.short.value;
   const long=form.long.value;
   const photo=form.photo.value;
-  const blog={title,categories,short,long,photo};
+  const userEmail=user?.email;
+  const blog={title,categories,short,long,photo,userEmail};
   console.log(blog);
+  axios.post('http://localhost:5000/blog',blog)
+  .then(res=>{console.log(res.data);})
+  .catch(error=>{console.log(error);})
 
-
+ 
 }
 
 

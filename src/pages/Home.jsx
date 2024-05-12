@@ -1,6 +1,8 @@
 import { Helmet } from "react-helmet-async";
 import Banner from "../components/Banner/Banner";
 import Newslatter from "../components/Newslatter/Newslatter";
+import RecentBlogs from "../components/recentBlogs/RecentBlogs";
+
 
 
 
@@ -14,6 +16,9 @@ const Home = () => {
       <div className="space-y-5">
         <div>
             <Banner></Banner>
+        </div>
+        <div className=" container mx-auto">
+          <RecentBlogs></RecentBlogs>
         </div>
         <div className="container mx-auto">
             <Newslatter></Newslatter>

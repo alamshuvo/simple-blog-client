@@ -1,6 +1,7 @@
 import { Input } from "@nextui-org/react";
 import "./style.css";
 import Swal from "sweetalert2";
+
 const Newslatter = () => {
     const handleSubmit=(e)=>{
         e.preventDefault();
@@ -26,10 +27,11 @@ const Newslatter = () => {
     }
   return (
     <div>
+       <div className="bg-[#F3F6F3] md:p-5 p-2 mt-5 mb-5 rounded-2xl">
+            <h1 className="text-3xl font-bold text-center underline  text-[#14261C] ">Subscribe Our Newsletter</h1>
+        </div>
       <div className="min-h-96">
-        <h1 className="md:text-3xl text-2xl text-[#14261C] text-center font-bold ">
-          Join Our Newsletter
-        </h1>
+        
         <div className="bg-scroll another min-h-96 rounded-lg">
           <div className="">
             <form onSubmit={handleSubmit} className="  ">
