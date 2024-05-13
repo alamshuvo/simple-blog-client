@@ -37,7 +37,7 @@ const MeetOurTeam = () => {
               alt="NextUI Album Cover"
               className="m-5 w-full h-[200px]"
             />
-            <p className="text-2xl font-bold text-red-100">Jwel</p>
+            <p className="text-2xl font-bold text-[#14261C]">Jwel</p>
           </div>
           <div className="">
             <Image
@@ -48,7 +48,7 @@ const MeetOurTeam = () => {
               alt="NextUI Album Cover"
               className="m-5 w-full h-[200px]"
             />
-            <p className="text-2xl font-bold text-red-100">Armani</p>
+            <p className="text-2xl font-bold text-[#14261C]">Armani</p>
           </div>
           <div className="">
             <Image
@@ -59,7 +59,7 @@ const MeetOurTeam = () => {
               alt="NextUI Album Cover"
               className="m-5 w-full h-[200px]"
             />
-            <p className="text-2xl font-bold text-red-100">Warner</p>
+            <p className="text-2xl font-bold text-[#14261C]">Warner</p>
           </div>
           <div className="">
             <Image
@@ -70,7 +70,7 @@ const MeetOurTeam = () => {
               alt="NextUI Album Cover"
               className="m-5 w-full h-[200px]"
             />
-            <p className="text-2xl font-bold text-red-100">David</p>
+            <p className="text-2xl font-bold text-[#14261C]">David</p>
           </div>
           <div className="">
             <Image
@@ -81,7 +81,7 @@ const MeetOurTeam = () => {
               alt="NextUI Album Cover"
               className="m-5 w-full h-[200px]"
             />
-            <p className="text-2xl font-bold text-red-100"> Alam</p>
+            <p className="text-2xl font-bold text-[#14261C]"> Alam</p>
           </div>
           <div className="w-[300px]">
             <Image
@@ -92,7 +92,7 @@ const MeetOurTeam = () => {
               alt="NextUI Album Cover"
               className="m-5 w-full h-[200px]"
             />
-            <p className="text-2xl font-bold text-red-100">Ash Alam</p>
+            <p className="text-2xl font-bold text-[#14261C]">Ash Alam</p>
             
           </div>
         </Slider>

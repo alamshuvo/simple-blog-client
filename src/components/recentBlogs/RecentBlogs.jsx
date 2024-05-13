@@ -73,8 +73,8 @@ const RecentBlogs = () => {
               className="p-5 rounded-lg shadow-lime-300 bg-[#F3F6F3]"
             >
               <div className="   rounded-md shadow-md  text-[#00AC97] ">
-                <div className="  rounded-lg overflow-hidden ">
-                  <p>Categories: {blog?.categories}</p>
+                <div className="  rounded-lg overflow-hidden p-2">
+                  <p className="mb-3 text-[#14261C]">Categories: {blog?.categories}</p>
                   <div className="overflow-hidden">
                     <img
                       src={blog.photo}
@@ -88,7 +88,7 @@ const RecentBlogs = () => {
                     <h2 className="md:text-2xl text-xl text-[#14261C] font-semibold ">
                       {blog?.title}
                     </h2>
-                    <p className=" text-[#00AC97]">
+                    <p className=" text-[#14261C]">
                       {blog?.short.slice(0, 100)}
                     </p>
                   </div>

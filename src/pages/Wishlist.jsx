@@ -9,19 +9,23 @@ import { Link } from "react-router-dom";
 
 const Wishlist = () => {
   const { user } = useContext(AuthContext);
- 
-  const { data: blogs, isPending,refetch } = useQuery({
-    queryKey: ["blogs",user?.email],
+
+  const {
+    data: blogs,
+    isPending,
+    refetch,
+  } = useQuery({
+    queryKey: ["blogs", user?.email],
     queryFn: async () => {
       const res = await fetch(
         `http://localhost:5000/wishlist/wish/${user?.email}`
       );
-     
+
       return res.json();
     },
   });
   console.log(blogs);
-  
+
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -35,7 +39,6 @@ const Wishlist = () => {
       if (result.isConfirmed) {
         fetch(`http://localhost:5000/wishlist/wish/${id}`, {
           method: "DELETE",
-          
         })
           .then((res) => res.json())
           .then((data) => {
@@ -46,24 +49,12 @@ const Wishlist = () => {
                 text: "Your wishlist Items has been deleted.",
                 icon: "success",
               });
-             refetch()
-             
-             
+              refetch();
             }
-           
           });
-            
       }
-    
     });
   };
-
-
-
-
-
-
-
 
   if (isPending) {
     return <p>Loading..............</p>;
@@ -73,59 +64,50 @@ const Wishlist = () => {
       <Helmet>
         <title>Simple Blog | Wishlist</title>
       </Helmet>
-      <div className="bg-[#F3F6F3] md:p-5 p-2 mt-5 mb-5 rounded-2xl">
-        <h1 className="text-3xl font-bold text-center underline  text-[#14261C] ">
+      <div className=" md:p-5 p-2 mt-5 mb-5 rounded-2xl">
+        <h1 className="md:text-4xl text-3xl font-bold text-center underline  text-[#14261C] ">
           WishList
         </h1>
       </div>
       <div>
-        {
-          blogs?.map((blog) => (
-          <div key={blog._id} className="md:w-5/6 p-2 mx-auto">
-            <div className="w-full ">
-              <Card className="py-4 z-[-100] bg-[#F3F6F3]  mb-3 p-4 rounded-lg text-[#00d2d3] shadow-lg">
-              <div className="flex justify-between">
-              <div>
-              <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-                  <p className="text-tiny uppercase font-bold">Title: {blog?.title}</p>
-                  <small className="text-default-500">Short description: {blog?.short}</small>
-                </CardHeader>
-              </div>
-               <div>
-               <CardBody className="overflow-visible py-2">
-                  <div className="overflow-hidden ">
-                  <p className="text-red-300">Categories:{blog?.categories}</p>
-                    <img
-                      alt="Card background"
-                      className="object-cover rounded-xl cursor-pointer "
-                      src={blog?.photo}
-                      width={400}
-                    />
-                   
-                  </div>
-                </CardBody>
-               </div>
-              </div>
-              </Card>
-
-
-              {/* button */}
-              <div className="flex justify-between bg-gray-200 p-2 rounded-lg">
+        {blogs?.map((blog) => (
+          <div
+            key={blog?._id}
+            className="flex flex-col overflow-hidden  shadow-sm lg:flex-row p-4 gap-3 rounded-lg"
+          >
+            <img
+              src={blog?.photo}
+              alt=""
+              className="h-80 dark:bg-gray-500 aspect-video"
+            />
+            <div className="flex flex-col justify-center flex-1 p-6 bg-gray-50 space-y-7">
+              {/* <span className="text-xs uppercase dark:text-gray-600">
+                Join, it's free
+              </span> */}
               
-                <Button onClick={() => handleDelete(blog?._id)} className="btn bg-[#00d2d3] rounded-lg text-white">
+              <p className="text-tiny uppercase font-bold">
+                {" "}
+                Title: {blog?.title}
+              </p>
+              <small className="text-default-500">
+                Short description : {blog?.short}
+              </small>
+              <div className="flex justify-between bg-gray-200 p-2 rounded-lg">
+                <Button
+                  onClick={() => handleDelete(blog?._id)}
+                  className="btn bg-[#00d2d3] rounded-lg text-white"
+                >
                   Delete
                 </Button>
                 <Link to={`/blogdetails/${blog?.unique}`}>
-                    <Button className="btn bg-red-300 rounded-lg text-white">
-                      Details
-                    </Button>
-                  </Link>
+                  <Button className="btn bg-red-300 rounded-lg text-white">
+                    Details
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
-        ))
-        
-        }
+        ))}
       </div>
     </div>
   );

@@ -56,10 +56,10 @@ console.log(currentDate);
       <Helmet>
         <title>Simple Blog | Add Blog</title>
       </Helmet>
-      <div className="bg-[#F3F6F3] md:p-5 p-2 mt-5 mb-5 rounded-2xl">
-            <h1 className="text-3xl font-bold text-center underline  text-[#14261C] ">Add Blog</h1>
+      <div className=" md:p-5 p-2 mt-5 mb-5 rounded-2xl">
+            <h1 className="md:text-4xl text-3xl font-bold text-center underline  text-[#14261C] ">Add Blog</h1>
         </div>
-      <div className="flex md:flex-row flex-col-reverse bg-[#F3F6F3]">
+      <div className="flex md:flex-row flex-col-reverse md:p-7 p-3 bg-[#F3F6F3]">
         <div className="md:w-1/4 w-full">
         <iframe src="https://lottie.host/embed/ae3bb47e-fa7a-4bbc-b4c1-c7ad69b5d0c6/brMGZT9Hgw.json" className="w-full min-h-screen"></iframe>
         </div>
