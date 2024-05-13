@@ -34,7 +34,7 @@ import PriveteRoutes from "./PriveteRoutes";
          },
          {
           path:"/addblog",
-          element:<AddBlog></AddBlog>
+          element:<PriveteRoutes><AddBlog></AddBlog></PriveteRoutes>
          },
          {
           path:"/allblogs",

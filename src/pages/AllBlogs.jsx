@@ -23,7 +23,7 @@ const AllBlogs = () => {
     },
   });
 
-  const handleWishlist = (c, d, e, f, g, h,i) => {
+  const handleWishlist = (c, d, e, f, g, h, i) => {
     const email = user?.email;
     const name = user?.displayName;
     const id = {
@@ -35,7 +35,7 @@ const AllBlogs = () => {
       short: f,
       title: g,
       photo: h,
-      unique:i
+      unique: i,
     };
     axios
       .post("http://localhost:5000/wish", id)
@@ -78,7 +78,7 @@ const AllBlogs = () => {
   //   console.log(text);
   // }
 
-  console.log(blogs);
+
   return (
     <div>
       <Helmet>
@@ -131,11 +131,14 @@ const AllBlogs = () => {
           {blogs?.map((blog) => (
             <div key={blog._id} className="md:w-4/6 p-2 mx-auto">
               <div className="w-full ">
-                <Card className="py-4 z-[-100] bg-[#00AC97] mb-3 p-4 rounded-lg text-white shadow-lg">
+                <Card className="py-4 z-[-100] bg-[#F3F6F3] mb-3 p-4 rounded-lg text-[#00AC97] shadow-lg">
                   <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-                    <p className="text-tiny uppercase font-bold">
-                      {blog?.title}
-                    </p>
+                    <div>
+                      <p className="text-tiny uppercase font-bold">
+                        {blog?.title}
+                      </p>
+                      <p className="text-red-500">Added Time:{blog?.formattedDate}</p>
+                    </div>
                     <small className="text-default-500">{blog?.short}</small>
                   </CardHeader>
                   <CardBody className="overflow-visible py-2">
@@ -149,7 +152,9 @@ const AllBlogs = () => {
                     </div>
                   </CardBody>
                 </Card>
-                <div className="flex justify-between ">
+
+                {/* buttons */}
+                <div className="flex justify-between bg-gray-100 p-3 rounded-lg">
                   <Link to={`/blogdetails/${blog?._id}`}>
                     <Button className="btn bg-red-300 rounded-lg text-white">
                       Details
