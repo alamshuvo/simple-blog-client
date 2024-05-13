@@ -60,8 +60,8 @@ const RecentBlogs = () => {
 
   return (
     <div className="z-0">
-      <div className="bg-[#F3F6F3] md:p-5 p-2 mt-5 mb-5 rounded-2xl">
-        <h1 className="text-3xl font-bold text-center underline  text-[#14261C] ">
+      <div className=" md:p-5 p-2 mt-5 mb-5 rounded-2xl">
+        <h1 className="md:text-4xl text-2xl font-bold text-center underline  text-[#14261C] ">
           Our Recent Blogs
         </h1>
       </div>

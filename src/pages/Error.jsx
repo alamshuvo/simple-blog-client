@@ -1,6 +1,5 @@
 import { Button } from "@nextui-org/react";
 import { Link } from "react-router-dom";
-
 const Error = () => {
   return (
     <section className="flex items-center h-full p-16 bg-[#F3F6F3] text-gray-800 min-h-screen">
@@ -27,6 +26,7 @@ const Error = () => {
          </Link>
         </div>
       </div>
+     
     </section>
   );
 };

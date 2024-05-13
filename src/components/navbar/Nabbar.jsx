@@ -28,8 +28,8 @@ const Nabbar = () => {
         <NavLink
           className={({ isActive }) =>
             isActive
-              ? " p-2 hover:bg-[#00d2d3] hover:text-[#F1EEDC]  rounded-md "
-              : "text-center  font-normal gap-6 text-[18px]"
+              ? " p-2 text-white rounded-lg bg-[#00d2d3] border border-b-4   "
+              : "text-center  font-normal gap-6 text-[18px] "
           }
           to={"/"}
         >
@@ -38,11 +38,11 @@ const Nabbar = () => {
       </li>
       <li>
         <NavLink
-          className={({ isActive }) =>
-            isActive
-              ? " p-2 hover:bg-[#00d2d3] hover:text-[#F1EEDC]  rounded-md "
-              : "text-center  font-normal gap-6 text-[18px]"
-          }
+           className={({ isActive }) =>
+           isActive
+             ? " p-2 text-white rounded-lg bg-[#00d2d3] border border-b-4   "
+             : "text-center  font-normal gap-6 text-[18px] "
+         }
           to={"/addblog"}
         >
           Add Blogs
@@ -50,11 +50,11 @@ const Nabbar = () => {
       </li>
       <li>
         <NavLink
-          className={({ isActive }) =>
-            isActive
-              ? " p-2 hover:bg-[#00d2d3] hover:text-[#F1EEDC]  rounded-md "
-              : "text-center  font-normal gap-6 text-[18px]"
-          }
+           className={({ isActive }) =>
+           isActive
+             ? " p-2 text-white rounded-lg bg-[#00d2d3] border border-b-4   "
+             : "text-center  font-normal gap-6 text-[18px] "
+         }
           to={"/allblogs"}
         >
           All Blogs
@@ -62,11 +62,11 @@ const Nabbar = () => {
       </li>
       <li>
         <NavLink
-          className={({ isActive }) =>
-            isActive
-              ? " p-2 hover:bg-[#00d2d3] hover:text-[#F1EEDC]  rounded-md "
-              : "text-center  font-normal gap-6 text-[18px]"
-          }
+           className={({ isActive }) =>
+           isActive
+             ? " p-2 text-white rounded-lg bg-[#00d2d3] border border-b-4   "
+             : "text-center  font-normal gap-6 text-[18px] "
+         }
           to={"/featuredblog"}
         >
           Featured Blogs
@@ -74,11 +74,11 @@ const Nabbar = () => {
       </li>
       <li>
         <NavLink
-          className={({ isActive }) =>
-            isActive
-              ? " p-2 hover:bg-[#00d2d3] hover:text-[#F1EEDC]  rounded-md "
-              : "text-center  font-normal gap-6 text-[18px]"
-          }
+           className={({ isActive }) =>
+           isActive
+             ? " p-2 text-white rounded-lg bg-[#00d2d3] border border-b-4   "
+             : "text-center  font-normal gap-6 text-[18px] "
+         }
           to={"/wishlist"}
         >
           Wishlist

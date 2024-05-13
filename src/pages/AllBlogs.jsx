@@ -78,19 +78,21 @@ const AllBlogs = () => {
   //   console.log(text);
   // }
 
+  console.log(blogs);
 
   return (
     <div>
       <Helmet>
         <title>Simple Blog | All Blogs</title>
       </Helmet>
-      <div className="bg-[#F3F6F3] md:p-5 p-2 mt-5 mb-5 rounded-2xl">
+      <div className=" md:p-5 p-2 mt-5 mb-5 rounded-2xl">
         <h1 className="text-3xl font-bold text-center underline  text-[#14261C] ">
           All Blogs
+         
         </h1>
       </div>
       <div>
-        <div className="bg-[#F3F6F3] z-100  md:p-5 p-2 mt-5 mb-5 flex justify-center items-center rounded-2xl">
+        <div className="z-100  md:p-5 p-2 mt-5 mb-5 flex justify-center items-center rounded-2xl">
           <Dropdown className=" bg-[#F3F6F3] z-100 ">
             <DropdownTrigger>
               <Button variant="Filterd By Categorie">
@@ -131,15 +133,15 @@ const AllBlogs = () => {
           {blogs?.map((blog) => (
             <div key={blog._id} className="md:w-4/6 p-2 mx-auto">
               <div className="w-full ">
-                <Card className="py-4 z-[-100] bg-[#F3F6F3] mb-3 p-4 rounded-lg text-[#00AC97] shadow-lg">
+                <Card className="py-4 z-[-100] bg-[#F3F6F3] mb-3 p-4 rounded-lg text-black shadow-lg">
                   <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
                     <div>
-                      <p className="text-tiny uppercase font-bold">
+                      <p className="text-tiny mt-2 uppercase font-bold">
                         {blog?.title}
                       </p>
-                      <p className="text-red-500">Added Time:{blog?.formattedDate}</p>
+                      <p className="text-red-500 mt-2">Added Time : {blog?. formattedDate}</p>
                     </div>
-                    <small className="text-default-500">{blog?.short}</small>
+                    <small className="text-default-500 mt-2">{blog?.short}</small>
                   </CardHeader>
                   <CardBody className="overflow-visible py-2">
                     <div className="overflow-hidden">

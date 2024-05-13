@@ -7,9 +7,7 @@ import router from "./routes/Routes.jsx";
 import { HelmetProvider } from "react-helmet-async";
 import AuthProvider from "./components/AuthProvider/AuthProvider.jsx";
 import {
-  useQuery,
-  useMutation,
-  useQueryClient,
+  
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'

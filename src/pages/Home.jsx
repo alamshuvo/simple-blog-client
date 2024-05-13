@@ -7,6 +7,7 @@ import MeetOurTeam from "../components/MeetOurTeam/MeetOurTeam";
 
 
 
+
 const Home = () => {
  
   return (
@@ -18,6 +19,7 @@ const Home = () => {
         <div>
             <Banner></Banner>
         </div>
+     
         <div className=" container mx-auto">
           <RecentBlogs></RecentBlogs>
         </div>
@@ -29,6 +31,7 @@ const Home = () => {
         </div>
         
       </div>
+     
      
     </div>
   );

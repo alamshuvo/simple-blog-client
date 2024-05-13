@@ -21,8 +21,8 @@ const MeetOurTeam = () => {
   };
   return (
     <div className=" ">
-      <div className="bg-[#F3F6F3] md:p-5 p-2 mt-5 mb-5 rounded-2xl">
-        <h1 className="text-2xl font-bold text-center underline  text-[#14261C] ">
+      <div className=" md:p-5 p-2 mt-5 mb-5 rounded-2xl">
+        <h1 className="md:text-4xl text-2xl font-bold text-center underline  text-[#14261C] ">
           Meet Our Team
         </h1>
       </div>
@@ -35,7 +35,7 @@ const MeetOurTeam = () => {
               height={240}
               src="https://i.ibb.co/FHVFcrK/162638.jpg"
               alt="NextUI Album Cover"
-              className="m-5 w-full h-full"
+              className="m-5 w-full h-[200px]"
             />
             <p className="text-2xl font-bold text-red-100">Jwel</p>
           </div>
@@ -46,7 +46,7 @@ const MeetOurTeam = () => {
               height={240}
               src="https://i.ibb.co/ZNWDY7g/19015.jpg"
               alt="NextUI Album Cover"
-              className="m-5 w-full h-full"
+              className="m-5 w-full h-[200px]"
             />
             <p className="text-2xl font-bold text-red-100">Armani</p>
           </div>
@@ -57,7 +57,7 @@ const MeetOurTeam = () => {
               height={240}
               src="https://i.ibb.co/FHXkT3d/1267.jpg"
               alt="NextUI Album Cover"
-              className="m-5 w-full h-full"
+              className="m-5 w-full h-[200px]"
             />
             <p className="text-2xl font-bold text-red-100">Warner</p>
           </div>
@@ -68,7 +68,7 @@ const MeetOurTeam = () => {
               height={240}
               src="https://i.ibb.co/NFRxnsp/5365.jpg"
               alt="NextUI Album Cover"
-              className="m-5 w-full h-full"
+              className="m-5 w-full h-[200px]"
             />
             <p className="text-2xl font-bold text-red-100">David</p>
           </div>
@@ -79,7 +79,7 @@ const MeetOurTeam = () => {
               height={240}
               src="https://i.ibb.co/Bt4YwHH/2148763859.jpg"
               alt="NextUI Album Cover"
-              className="m-5 w-full h-full"
+              className="m-5 w-full h-[200px]"
             />
             <p className="text-2xl font-bold text-red-100"> Alam</p>
           </div>
@@ -90,7 +90,7 @@ const MeetOurTeam = () => {
               height={240}
               src="https://i.ibb.co/DrGcNgS/2148612950.jpg"
               alt="NextUI Album Cover"
-              className="m-5 w-full h-full"
+              className="m-5 w-full h-[200px]"
             />
             <p className="text-2xl font-bold text-red-100">Ash Alam</p>
             
