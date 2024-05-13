@@ -20,12 +20,12 @@ const FeaturedBlogs = () => {
     },
   });
   console.log(blogs);
-  const dataArray = blogs?.slice(0,10).fill(blogs)
+  const dataArray = blogs?.slice(0,10)
   .map((blog, index) => ({
-    SerialNumber: `:${index+1}`,
+    SerialNumber: index+1,
     blogTitle: blog?.title,
-    userName: `${blog?.userName}`,
-    column4: `column:4 row:${index}`,
+    userName: blog?.userName,
+    ProfilePicture: blog?.photo,
     id: index,
   }));
 
@@ -44,8 +44,8 @@ const FeaturedBlogs = () => {
       <Helmet>
         <title>Simple Blog | Featured Blog</title>
       </Helmet>
-      <div className="bg-[#F3F6F3] md:p-5 p-2 mt-5 mb-5 rounded-2xl">
-        <h1 className="text-3xl font-bold text-center underline  text-[#14261C] ">
+      <div className=" md:p-5 p-2 mt-5 mb-5 rounded-2xl">
+        <h1 className="md:text-4xl text-3xl font-bold text-center underline  text-[#14261C] ">
           Featured Blog
         </h1>
       </div>
@@ -53,13 +53,20 @@ const FeaturedBlogs = () => {
       columns={[
         { key: 'SerialNumber', title: 'SerialNumber', dataType: DataType.String },
         { key: 'blogTitle', title: 'blogTitle', dataType: DataType.String },
-        { key: ' Blog Owner', title: ' Blog Owner', dataType: DataType.String },
-        { key: ' Profile Picture', title: ' Profile Picture', dataType: DataType.String },
+        { key: 'userName', title: ' userName', dataType: DataType.String },
+        { key: 'ProfilePicture', title: 'ProfilePicture', dataType: DataType.String },
       ]}
       data={dataArray}
       editingMode={EditingMode.Cell}
       rowKeyField={'id'}
       sortingMode={SortingMode.Single}
+      formatItemField={(fieldKey, value) =>
+        fieldKey == "ProfilePicture" ? (
+          <img src={value} alt="Owner Pic" style={{ maxWidth: "50px" }} />
+        ) : (
+          value
+        )
+      }
     />
     </div>
   );

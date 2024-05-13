@@ -131,9 +131,9 @@ const AllBlogs = () => {
         </div>
         <div>
           {blogs?.map((blog) => (
-            <div key={blog._id} className="md:w-4/6 p-2 mx-auto">
-              <div className="w-full ">
-                <Card className="py-4 z-[-100] bg-[#F3F6F3] mb-3 p-4 rounded-lg text-black shadow-lg">
+            <div key={blog._id} className="md:w-4/6 p-2 mx-auto shadow-[#00AC97] shadow-xl ">
+              <div className="w-full mb-5 mt-4  ">
+                <Card className="py-4 z-[-100] bg-[#F3F6F3] p-4 rounded-lg text-black shadow-lg">
                   <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
                     <div>
                       <p className="text-tiny mt-2 uppercase font-bold">

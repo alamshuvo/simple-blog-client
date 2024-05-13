@@ -70,7 +70,7 @@ const RecentBlogs = () => {
           blogs?.slice(0, 6).map((blog) => (
             <div
               key={blog._id}
-              className="p-5 rounded-lg shadow-lime-300 bg-[#F3F6F3]"
+              className="p-5 rounded-lg shadow-[#00AC97] shadow-xl"
             >
               <div className="   rounded-md shadow-md  text-[#00AC97] ">
                 <div className="  rounded-lg overflow-hidden p-2">

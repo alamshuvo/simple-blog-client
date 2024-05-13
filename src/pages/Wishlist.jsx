@@ -73,12 +73,12 @@ const Wishlist = () => {
         {blogs?.map((blog) => (
           <div
             key={blog?._id}
-            className="flex flex-col overflow-hidden  shadow-sm lg:flex-row p-4 gap-3 rounded-lg"
+            className="flex flex-col overflow-hidden  border lg:flex-row p-4 gap-5 rounded-lg shadow-[#00AC97] shadow-xl"
           >
             <img
               src={blog?.photo}
               alt=""
-              className="h-80 dark:bg-gray-500 aspect-video"
+              className="h-80  aspect-video"
             />
             <div className="flex flex-col justify-center flex-1 p-6 bg-gray-50 space-y-7">
               {/* <span className="text-xs uppercase dark:text-gray-600">

@@ -63,7 +63,7 @@ console.log(currentDate);
         <div className="md:w-1/4 w-full">
         <iframe src="https://lottie.host/embed/ae3bb47e-fa7a-4bbc-b4c1-c7ad69b5d0c6/brMGZT9Hgw.json" className="w-full min-h-screen"></iframe>
         </div>
-        <div className="md:w-3/4 w-full p-3">
+        <div className="md:w-3/4 w-full p-3 shadow-[#00AC97] shadow-xl">
           <form onSubmit={handleAddBlog} className="flex  flex-col gap-4 bg-white p-4 rounded-lg">
             
               <label htmlFor="Title">Title</label>

@@ -15,7 +15,7 @@ const Home = () => {
       <Helmet>
         <title>Simple Blog | Home</title>
       </Helmet>
-      <div className="space-y-5">
+      <div className="space-y-5 bg-[#F3F6F3]">
         <div>
             <Banner></Banner>
         </div>

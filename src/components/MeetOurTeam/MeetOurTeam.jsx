@@ -26,8 +26,8 @@ const MeetOurTeam = () => {
           Meet Our Team
         </h1>
       </div>
-      <div className="slider-container w-4/6 mx-auto min-h-screen">
-        <Slider {...settings} className="h-full ">
+      <div className="slider-container w-4/6 mx-auto min-h-screen  ">
+        <Slider {...settings} className="h-full shadow-[#00AC97] shadow-xl">
           <div className="">
             <Image
               isBlurred
