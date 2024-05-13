@@ -3,10 +3,15 @@ import { useContext } from "react";
 import { AuthContext } from "../components/AuthProvider/AuthProvider";
 import axios from "axios";
 import { Helmet } from "react-helmet-async";
+import Swal from "sweetalert2";
+import { useLocation, useNavigate } from "react-router-dom";
 // import axios from "axios";
 
 const AddBlog = () => {
 const {user}=useContext(AuthContext)
+const navigate=useNavigate();
+const location=useLocation();
+const from =location?.state || "/"
 
 
 
@@ -28,7 +33,15 @@ console.log(currentDate);
   const blog={title,categories,short,long,photo,userEmail,formattedDate,userName};
   console.log(blog);
   axios.post('http://localhost:5000/blog',blog)
-  .then(res=>{console.log(res.data);})
+  .then(res=>{console.log(res.data);
+    Swal.fire({
+      icon: "success",
+      title: "WOW",
+      text: "add Blog  sucessfully!",
+      footer: '<a href="#">Why do I have this issue?</a>'
+    });
+    navigate(from)
+  })
   .catch(error=>{console.log(error);})
 
  

@@ -11,9 +11,10 @@ import {
 } from "@nextui-org/react";
 import { useContext } from "react";
 import { AuthContext } from "../components/AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 const AllBlogs = () => {
-  const {user}=useContext(AuthContext)
+  const { user, error } = useContext(AuthContext);
   const { data: blogs, isPending } = useQuery({
     queryKey: ["blogs"],
     queryFn: async () => {
@@ -22,19 +23,38 @@ const AllBlogs = () => {
     },
   });
 
-  const handleWishlist = (c,d,e,f,g,h) => {
-    const email=user?.email;
-    const name=user?.displayName
-    const id={email:email,name:name,date:c,categories:d,long:e,short:f,title:g,photo:h}
-    axios.post('http://localhost:5000/wish',id)
-    .then(res=>{console.log(res.data);})
-    .catch(error=>{console.log(error);})
+  const handleWishlist = (c, d, e, f, g, h,i) => {
+    const email = user?.email;
+    const name = user?.displayName;
+    const id = {
+      email: email,
+      name: name,
+      date: c,
+      categories: d,
+      long: e,
+      short: f,
+      title: g,
+      photo: h,
+      unique:i
+    };
+    axios
+      .post("http://localhost:5000/wish", id)
+      .then((res) => {
+        console.log(res.data);
+        if (!error) {
+          Swal.fire({
+            icon: "success",
+            title: "WOW",
+            text: "Blog added  wishlist sucessfully!",
+            footer: '<a href="#">Why do I have this issue?</a>',
+          });
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
     console.log(id);
   };
-
-
-
-
 
   // const handleCreative=(text)=>{
   //   console.log(text);
@@ -58,10 +78,6 @@ const AllBlogs = () => {
   //   console.log(text);
   // }
 
-
-
-
-
   console.log(blogs);
   return (
     <div>
@@ -77,17 +93,34 @@ const AllBlogs = () => {
         <div className="bg-[#F3F6F3] z-100  md:p-5 p-2 mt-5 mb-5 flex justify-center items-center rounded-2xl">
           <Dropdown className=" bg-[#F3F6F3] z-100 ">
             <DropdownTrigger>
-              <Button variant="Filterd By Categorie">Filterd By Categories</Button>
+              <Button variant="Filterd By Categorie">
+                Filterd By Categories
+              </Button>
             </DropdownTrigger>
             <DropdownMenu aria-label="Static Actions">
-              <DropdownItem  key="The Creative Corner">The Creative Corner</DropdownItem>
-              
-              <DropdownItem   key="Health & Wellness Hub"> Health & Wellness Hub</DropdownItem>
-              <DropdownItem key="Tech Talk Central">Tech Talk Central</DropdownItem>
-              <DropdownItem   key="Travel Tales & Adventures">Travel Tales & Adventures</DropdownItem>
-              <DropdownItem key=" Foodie Finds & Culinary Delights">  Foodie Finds & Culinary Delights</DropdownItem>
-              <DropdownItem   key="Mindful Living Magazine">  Mindful Living Magazine</DropdownItem>
-              
+              <DropdownItem key="The Creative Corner">
+                The Creative Corner
+              </DropdownItem>
+
+              <DropdownItem key="Health & Wellness Hub">
+                {" "}
+                Health & Wellness Hub
+              </DropdownItem>
+              <DropdownItem key="Tech Talk Central">
+                Tech Talk Central
+              </DropdownItem>
+              <DropdownItem key="Travel Tales & Adventures">
+                Travel Tales & Adventures
+              </DropdownItem>
+              <DropdownItem key=" Foodie Finds & Culinary Delights">
+                {" "}
+                Foodie Finds & Culinary Delights
+              </DropdownItem>
+              <DropdownItem key="Mindful Living Magazine">
+                {" "}
+                Mindful Living Magazine
+              </DropdownItem>
+
               {/* <DropdownItem key="delete" className="text-danger" color="danger">
                 Delete file
               </DropdownItem> */}
@@ -124,7 +157,17 @@ const AllBlogs = () => {
                   </Link>
 
                   <Button
-                    onClick={() => handleWishlist(blog?.formattedDate,blog?.categories,blog?.long,blog?.short,blog?.title,blog?.photo)}
+                    onClick={() =>
+                      handleWishlist(
+                        blog?.formattedDate,
+                        blog?.categories,
+                        blog?.long,
+                        blog?.short,
+                        blog?.title,
+                        blog?.photo,
+                        blog?._id
+                      )
+                    }
                     className="btn bg-[#00d2d3] rounded-lg text-white"
                   >
                     Wishlist

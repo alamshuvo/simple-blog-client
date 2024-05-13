@@ -1,15 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../components/AuthProvider/AuthProvider";
 import { Button } from "@nextui-org/react";
 import { Card, CardHeader, CardBody } from "@nextui-org/react";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const Wishlist = () => {
   const { user } = useContext(AuthContext);
-  // const [dataa, setDataa] = useState([]);
-  // const [a,setA]=useState(true);
+ 
   const { data: blogs, isPending,refetch } = useQuery({
     queryKey: ["blogs",user?.email],
     queryFn: async () => {
@@ -21,7 +21,7 @@ const Wishlist = () => {
     },
   });
   console.log(blogs);
-  // console.log(user?.email);
+  
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -47,10 +47,7 @@ const Wishlist = () => {
                 icon: "success",
               });
              refetch()
-              // const remaning=blogs.filter(user=>user._id !==id);
-              // setDataa(remaning)
-              // window.location.reload()
-              // setA(false)
+             
              
             }
            
@@ -84,34 +81,45 @@ const Wishlist = () => {
       <div>
         {
           blogs?.map((blog) => (
-          <div key={blog._id} className="md:w-4/6 p-2 mx-auto">
+          <div key={blog._id} className="md:w-5/6 p-2 mx-auto">
             <div className="w-full ">
-              <Card className="py-4 z-[-100] bg-[#00AC97] mb-3 p-4 rounded-lg text-white shadow-lg">
-                <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-                  <p className="text-tiny uppercase font-bold">{blog?.title}</p>
-                  <small className="text-default-500">{blog?.short}</small>
+              <Card className="py-4 z-[-100] bg-[#F3F6F3]  mb-3 p-4 rounded-lg text-[#00d2d3] shadow-lg">
+              <div className="flex justify-between">
+              <div>
+              <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
+                  <p className="text-tiny uppercase font-bold">Title: {blog?.title}</p>
+                  <small className="text-default-500">Short description: {blog?.short}</small>
                 </CardHeader>
-                <CardBody className="overflow-visible py-2">
-                  <div className="overflow-hidden">
+              </div>
+               <div>
+               <CardBody className="overflow-visible py-2">
+                  <div className="overflow-hidden ">
+                  <p className="text-red-300">Categories:{blog?.categories}</p>
                     <img
                       alt="Card background"
                       className="object-cover rounded-xl cursor-pointer "
                       src={blog?.photo}
-                      width={500}
+                      width={400}
                     />
+                   
                   </div>
                 </CardBody>
+               </div>
+              </div>
               </Card>
-              <div className="flex justify-between ">
-                {/* <Link to={`/blogdetails/${blog?._id}`}>
-                  <Button className="btn bg-red-300 rounded-lg text-white">
-                    Details
-                  </Button>
-                </Link> */}
 
-                <Button onClick={() => handleDelete(blog?._id)} className="btn">
+
+              {/* button */}
+              <div className="flex justify-between bg-gray-200 p-2 rounded-lg">
+              
+                <Button onClick={() => handleDelete(blog?._id)} className="btn bg-[#00d2d3] rounded-lg text-white">
                   Delete
                 </Button>
+                <Link to={`/blogdetails/${blog?.unique}`}>
+                    <Button className="btn bg-red-300 rounded-lg text-white">
+                      Details
+                    </Button>
+                  </Link>
               </div>
             </div>
           </div>
