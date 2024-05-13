@@ -11,9 +11,8 @@ import Swal from "sweetalert2";
 const UpdateBlog = () => {
   const { user } = useContext(AuthContext);
   const { id } = useParams();
-  // const [comments,setComments]=useState([])
-  console.log(id);
-  const { data: blogs, isPending } = useQuery({
+ 
+ const { data: blogs, isPending } = useQuery({
     queryKey: ["blogs", id],
     queryFn: async () => {
       const res = await fetch(`http://localhost:5000/blog/id/${id}`);
@@ -21,7 +20,6 @@ const UpdateBlog = () => {
     },
   });
 
-  console.log(blogs);
   const handleAddBlog = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -55,6 +53,11 @@ const UpdateBlog = () => {
         // Handle errors
       });
   };
+
+if (isPending) {
+    return <p>Loading......</p>
+}
+
 
   return (
     <div className="">
