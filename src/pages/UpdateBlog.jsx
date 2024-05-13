@@ -6,6 +6,7 @@ import { AuthContext } from "../components/AuthProvider/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { config } from "localforage";
+import Swal from "sweetalert2";
 
 const UpdateBlog = () => {
   const { user } = useContext(AuthContext);
@@ -39,6 +40,16 @@ const UpdateBlog = () => {
       .then((response) => {
         // Handle the response
         console.log(response.data);
+            
+        if (response.data.modifiedCount > 0) {
+        
+            Swal.fire({
+              icon: "success",
+              title: "Wow...",
+              text: "Your Blog iteam updated Data Sucessfully!",
+              footer: '<a href="#">Why do I have this issue?</a>',
+            });
+          }
       })
       .catch((error) => {
         // Handle errors

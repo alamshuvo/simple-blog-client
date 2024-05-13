@@ -28,18 +28,20 @@ const RecentBlogs = () => {
    {
        blogs.length>0 && blogs?.slice(0,6).map(blog=><div key={blog._id} className="p-5 rounded-lg shadow-lime-300 bg-[#F3F6F3]">
        <div className="   rounded-md shadow-md  text-[#00AC97] ">
-         <div className=" overflow-hidden rounded-lg p-2 ">
+         <div className="  rounded-lg overflow-hidden ">
            <p>Categories: {blog?.categories}</p>
-           <img
+          <div className="overflow-hidden">
+          <img
              src={blog.photo}
              alt=""
-             className="w-full p-2 rounded-lg h-[450px]"
+             className="w-full hover:scale-110 hover:rotate-6 duration-500  rounded-lg h-[300px] cursor-pointer"
            />
+          </div>
          </div>
          <div className="flex flex-col justify-between h-auto p-6 space-y-8 ">
            <div className="space-y-2">
-             <h2 className="md:text-3xl text-2xl text-[#14261C] font-semibold ">
-               {blog?.title.slice(0, 20)}
+             <h2 className="md:text-2xl text-xl text-[#14261C] font-semibold ">
+               {blog?.title}
              </h2>
              <p className=" text-[#00AC97]">{blog?.short.slice(0, 100)}</p>
            </div>

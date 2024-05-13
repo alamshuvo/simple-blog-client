@@ -1,11 +1,12 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../components/AuthProvider/AuthProvider";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { Avatar, Textarea } from "@nextui-org/react";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { MdOutlineDelete } from "react-icons/md";
 
 const BlogDetails = () => {
   
@@ -58,6 +59,34 @@ const BlogDetails = () => {
       }
       })
     .catch(error=>{console.log(error);})
+  }
+  const handleDelete=()=>{
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+        .delete(`comment/id/${id}`)
+        .then((res) => {
+          console.log(res)
+          refetch()
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your file has been deleted.",
+            icon: "success"
+          });
+        })
+        .catch((err) => console.log(err));
+
+
+      }
+    });
   }
   
 if (isPending) {
@@ -148,7 +177,10 @@ if (ispending2) {
                    <p className="text-[#00AC97]">{comment?.userName}</p>
                    <p className="text-[#00AC97]">{comment?.userEmail}</p>
                    </div>
+                   <div className="flex justify-between" >
                    <p className="text-red-400">{comment?.comment}</p>
+                    
+                   </div>
                   </div>
                 </div>)
                }
