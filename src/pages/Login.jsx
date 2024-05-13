@@ -4,29 +4,57 @@ import { useContext, useState } from "react";
 // import { EyeSlashFilledIcon } from "./EyeSlashFilledIcon";
 import { IoEyeOffSharp } from "react-icons/io5";
 import { FaEye } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaArrowRight } from "react-icons/fa";
 import { AuthContext } from "../components/AuthProvider/AuthProvider";
 import { Input } from "@nextui-org/react";
+import Swal from "sweetalert2";
 
 const Login = () => {
-  const {loginUser,signinWithGoogle}=useContext(AuthContext)
+  const {loginUser,signinWithGoogle,error}=useContext(AuthContext)
   const [isVisible, setIsVisible] = useState(false);
   const toggleVisibility = () => setIsVisible(!isVisible);
+  const navigate=useNavigate();
+    const location=useLocation();
+    const from =location?.state || "/"
  const handleLogin=(e)=>{
   e.preventDefault();
   const form=e.target;
   const email=form.email.value;
   const password=form.password.value;
   loginUser(email,password)
-  .then(res=>{console.log(res.user);})
+  .then(res=>{console.log(res.user);
+    if (!error) {
+      Swal.fire({
+          icon: "success",
+          title: "WOW",
+          text: "User created sucessfully!",
+          footer: '<a href="#">Why do I have this issue?</a>'
+        });
+  }
+  if (res.user) {
+      navigate(from)
+  }
+  })
   .catch(error=>{console.log(error);})
 
  }
  const handleGoogleLogin=()=>{
   signinWithGoogle()
-  .then(res=>{console.log(res.user);})
+  .then(res=>{console.log(res.user);
+    if (!error) {
+      Swal.fire({
+          icon: "success",
+          title: "WOW",
+          text: "User created sucessfully!",
+          footer: '<a href="#">Why do I have this issue?</a>'
+        });
+  }
+  if (res.user) {
+      navigate(from)
+  }
+  })
   .catch(error=>{console.log(error);})
  }
 

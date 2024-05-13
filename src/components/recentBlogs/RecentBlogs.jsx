@@ -1,9 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import { useContext } from "react";
 
-import { Link } from "react-router-dom";
+import { Link,  } from "react-router-dom";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 
 const RecentBlogs = () => {
+  const {user}=useContext(AuthContext)
+ 
   const { data: blogs=[], isPending } = useQuery({
     queryKey: ["blogs"],
     queryFn: async () => {
@@ -12,6 +17,28 @@ const RecentBlogs = () => {
     },
   });
   console.log(blogs);
+ 
+
+//  console.log(bdata,adata);
+const handleWishlist=(c,d,e,f,g,h)=>{
+  const email=user?.email;
+  const  name=user?.displayName;
+  const id={email:email,name:name,date:c,categories:d,long:e,short:f,title:g,photo:h}
+ 
+
+  axios.post('http://localhost:5000/wishlist',id)
+  .then(res=>{console.log(res.data);})
+  .catch(error=>{console.log(error);})
+  
+
+ console.log(id);
+}
+
+
+
+
+
+
 
   if (isPending) {
     return <p>Loading............</p>
@@ -54,14 +81,16 @@ const RecentBlogs = () => {
                  Details
                </button>
              </Link>
-             <Link to={`/wishlist/${blog?._id}`}>
+             
                <button
+               onClick={()=>handleWishlist(blog?.formattedDate,blog?.categories,blog?.long,blog?.short,blog?.title,blog?.photo
+               )}
                  type="button"
                  className="flex items-center justify-between w-full p-3 font-semibold tracking-wide rounded-md bg-[#00d2d3] text-white"
                >
                  Wishlist
                </button>
-             </Link>
+          
            </div>
          </div>
        </div>

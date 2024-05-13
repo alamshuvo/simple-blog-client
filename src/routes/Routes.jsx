@@ -12,6 +12,7 @@ import FeaturedBlogs from "../pages/FeaturedBlogs";
 import Wishlist from "../pages/Wishlist";
 import BlogDetails from "../pages/BlogDetails";
 import UpdateBlog from "../pages/UpdateBlog";
+import PriveteRoutes from "./PriveteRoutes";
 
   const  router = createBrowserRouter([
     {
@@ -44,17 +45,17 @@ import UpdateBlog from "../pages/UpdateBlog";
           element:<FeaturedBlogs></FeaturedBlogs>
          },
          {
-          path:"/wishlist/:id",
+          path:"/wishlist",
           element:<Wishlist></Wishlist>
          },
          {
           path:"/blogdetails/:id",
-          element:<BlogDetails></BlogDetails>
+          element:<PriveteRoutes><BlogDetails></BlogDetails></PriveteRoutes>
          },
 
          {
           path:"/updateblog/:id",
-          element:<UpdateBlog></UpdateBlog>
+          element:<PriveteRoutes><UpdateBlog></UpdateBlog></PriveteRoutes>
          }
       ]
     },
