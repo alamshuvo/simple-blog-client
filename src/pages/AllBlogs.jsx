@@ -15,10 +15,11 @@ const AllBlogs = () => {
   const [filteredata, setFilteredata] = useState([]);
   const [searchData, setSearchData] = useState("");
   const [value, setValue] = useState("");
+
   const { data: blogs, isPending } = useQuery({
     queryKey: ["blogs"],
     queryFn: async () => {
-      const res = await fetch(`https://simple-blog-server-two.vercel.app/blog`);
+      const res = await fetch(`https://simple-blog-server-two.vercel.app/blog`,);
 
       return res.json();
     },
@@ -64,6 +65,8 @@ const AllBlogs = () => {
       });
     // console.log(id);
   };
+
+  
   useEffect(() => {
     const filteredData = blogs?.filter((item) =>
       filter ? item.categories === filter : true
@@ -72,7 +75,8 @@ const AllBlogs = () => {
     setFilteredata(filteredData);
   }, [blogs, filter]);
 
-  const handleTitle = async (e) => {
+
+  const handleTitle =(e) => {
     // console.log(e);
     setValue(e);
     // const filterdata=blogs.filter((item)=>{
@@ -80,13 +84,13 @@ const AllBlogs = () => {
     // })
     // setFilteredata(filterdata)
     setSearchData(e);
-    console.log(searchData);
+    // console.log(searchData);
     // axios.post('https://simple-blog-server-two.vercel.app/blog',e)
     // .then(res=>{console.log(res.data)})
     // .catch(error=>{console.log(error);})
   };
 
-  // console.log(value);
+  console.log(value);
   return (
     <div>
       <Helmet>
@@ -116,8 +120,8 @@ const AllBlogs = () => {
                 "Health & Wellness Hub"
               </option>
               <option value="Tech Talk Central">"Tech Talk Central"</option>
-              <option value=" Foodie Finds & Culinary Delights">
-                " Foodie Finds & Culinary Delights"
+              <option value="Foodie Finds & Culinary Delights">
+                "Foodie Finds & Culinary Delights"
               </option>
               <option value="Travel Tales & Adventures">
                 "Mindful Living Magazine"
@@ -160,7 +164,7 @@ const AllBlogs = () => {
                       <p className="text-tiny mt-2 uppercase font-bold">
                         {blog?.title}
                       </p>
-                      <p className="text-tiny mt-2 uppercase font-bold">
+                      <p className="text-tiny mt-2 text-red-500 uppercase font-bold">
                        Categories :  {blog?.categories}
                       </p>
                       <p className="text-red-500 mt-2">

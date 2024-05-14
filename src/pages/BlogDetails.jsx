@@ -168,8 +168,11 @@ if (ispending2) {
                 />
                 <input type="submit"  className="w-full text-white bg-[#00d2d3] p-3 rounded-lg cursor-pointer mt-5"/>
                </form>
+              
+              </div>
+              )}
                {
-                comments?.map(comment=><div key={comment._id}>
+                comments?.map(comment=><div key={comment._id} className="bg-[#F3F6F3] text-[#14261C] shadow-[#00AC97] shadow-xl p-5 rounded-lg mb-5 mt-5">
                   <div className="w-full bg-[#F3F6F3] p-4 rounded-lg mt-5">
                    <div className="flex justify-around gap-3 border-b-4">
                     <div className="">
@@ -185,8 +188,6 @@ if (ispending2) {
                   </div>
                 </div>)
                }
-              </div>
-              )}
             </div>
           </div>
         </section>
