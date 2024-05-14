@@ -7,7 +7,7 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 
 const RecentBlogs = () => {
-  const { user,error } = useContext(AuthContext);
+  const { user, error } = useContext(AuthContext);
 
   const { data: blogs = [], isPending } = useQuery({
     queryKey: ["blogs"],
@@ -19,7 +19,18 @@ const RecentBlogs = () => {
   console.log(blogs);
 
   //  console.log(bdata,adata);
-  const handleWishlist = (c, d, e, f, g, h,i) => {
+  // if (!user) {
+  //      return
+  // }
+  const handleWishlist2 = () => {
+    Swal.fire({
+      icon: "error",
+      title: "Please loogdin",
+      text: "please loogdin and Blog added wishlist  sucessfully!",
+      footer: '<a href="#">Why do I have this issue?</a>',
+    });
+  };
+  const handleWishlist = (c, d, e, f, g, h, i) => {
     const email = user?.email;
     const name = user?.displayName;
     const id = {
@@ -31,7 +42,7 @@ const RecentBlogs = () => {
       short: f,
       title: g,
       photo: h,
-      unique:i
+      unique: i,
     };
 
     axios
@@ -43,7 +54,7 @@ const RecentBlogs = () => {
             icon: "success",
             title: "WOW",
             text: "Blog added wishlist  sucessfully!",
-            footer: '<a href="#">Why do I have this issue?</a>'
+            footer: '<a href="#">Why do I have this issue?</a>',
           });
         }
       })
@@ -53,6 +64,8 @@ const RecentBlogs = () => {
 
     console.log(id);
   };
+
+ 
 
   if (isPending) {
     return <p>Loading............</p>;
@@ -74,7 +87,9 @@ const RecentBlogs = () => {
             >
               <div className="   rounded-md shadow-md  text-[#00AC97] ">
                 <div className="  rounded-lg overflow-hidden p-2">
-                  <p className="mb-3 text-[#14261C]">Categories: {blog?.categories}</p>
+                  <p className="mb-3 text-[#14261C]">
+                    Categories: {blog?.categories}
+                  </p>
                   <div className="overflow-hidden">
                     <img
                       src={blog.photo}
@@ -102,23 +117,33 @@ const RecentBlogs = () => {
                       </button>
                     </Link>
 
-                    <button
-                      onClick={() =>
-                        handleWishlist(
-                          blog?.formattedDate,
-                          blog?.categories,
-                          blog?.long,
-                          blog?.short,
-                          blog?.title,
-                          blog?.photo,
-                          blog?._id
-                        )
-                      }
-                      type="button"
-                      className="flex items-center justify-between w-full p-3 font-semibold tracking-wide rounded-md bg-[#00d2d3] text-white"
-                    >
-                      Wishlist
-                    </button>
+                    {user ? (
+                      <button
+                        onClick={() =>
+                          handleWishlist(
+                            blog?.formattedDate,
+                            blog?.categories,
+                            blog?.long,
+                            blog?.short,
+                            blog?.title,
+                            blog?.photo,
+                            blog?._id
+                          )
+                        }
+                        type="button"
+                        className="flex items-center justify-between w-full p-3 font-semibold tracking-wide rounded-md bg-[#00d2d3] text-white"
+                      >
+                        Wishlist
+                      </button>
+                    ) : (
+                      <button
+                        onClick={() => handleWishlist2}
+                        type="button"
+                        className="flex items-center justify-between w-full p-3 font-semibold tracking-wide rounded-md bg-[#00d2d3] text-white"
+                      >
+                       without login you cant added Wishlist
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>

@@ -17,7 +17,7 @@ const BlogDetails = () => {
   const { data: blogs, isPending } = useQuery({
     queryKey: ["blogs",id],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/blog/id/${id}`);
+      const res = await fetch(`http://localhost:5000/blog/id/${id}`)
       return res.json();
     },
   });

@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { Card, CardHeader, CardBody, Button } from "@nextui-org/react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import {Textarea} from "@nextui-org/react";
+import { Textarea } from "@nextui-org/react";
 
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../components/AuthProvider/AuthProvider";
@@ -13,18 +13,24 @@ const AllBlogs = () => {
   const { user, error } = useContext(AuthContext);
   const [filter, setFilter] = useState("");
   const [filteredata, setFilteredata] = useState([]);
-  const [searchData, setSearchData] = useState('');
-  const [value, setValue] =useState("");
+  const [searchData, setSearchData] = useState("");
+  const [value, setValue] = useState("");
   const { data: blogs, isPending } = useQuery({
     queryKey: ["blogs"],
     queryFn: async () => {
       const res = await fetch(`http://localhost:5000/blog`);
-    
+
       return res.json();
     },
-  
-   
   });
+  const handleWishlist2 = () => {
+    Swal.fire({
+      icon: "error",
+      title: "Please loogdin",
+      text: "please loogdin and Blog added wishlist  sucessfully!",
+      footer: '<a href="#">Why do I have this issue?</a>',
+    });
+  };
 
   const handleWishlist = (c, d, e, f, g, h, i) => {
     const email = user?.email;
@@ -59,38 +65,28 @@ const AllBlogs = () => {
     console.log(id);
   };
   useEffect(() => {
-  
     const filteredData = blogs?.filter((item) =>
       filter ? item.categories === filter : true
     );
-   
 
     setFilteredata(filteredData);
   }, [blogs, filter]);
 
-
- 
-
-
-
-  const handleTitle= async(e)=>{
+  const handleTitle = async (e) => {
     console.log(e);
     setValue(e);
     // const filterdata=blogs.filter((item)=>{
     //   filter ? item.title === filter : true
     // })
     // setFilteredata(filterdata)
-    setSearchData(e)
+    setSearchData(e);
     console.log(searchData);
     // axios.post('http://localhost:5000/blog',e)
     // .then(res=>{console.log(res.data)})
     // .catch(error=>{console.log(error);})
-   
+  };
 
-  }
-
-
-// console.log(value);
+  // console.log(value);
   return (
     <div>
       <Helmet>
@@ -142,7 +138,12 @@ const AllBlogs = () => {
               <p className="text-default-500 text-small">
                 Textarea value: {value}
               </p>
-              <button onClick={()=>handleTitle(value)} className="btn p-2 shadow-[#00AC97] shadow-xl rounded-lg bg-[#00AC97] text-white">Search</button>
+              <button
+                onClick={() => handleTitle(value)}
+                className="btn p-2 shadow-[#00AC97] shadow-xl rounded-lg bg-[#00AC97] text-white"
+              >
+                Search
+              </button>
             </div>
           </div>
         </div>
@@ -187,22 +188,31 @@ const AllBlogs = () => {
                     </Button>
                   </Link>
 
-                  <Button
-                    onClick={() =>
-                      handleWishlist(
-                        blog?.formattedDate,
-                        blog?.categories,
-                        blog?.long,
-                        blog?.short,
-                        blog?.title,
-                        blog?.photo,
-                        blog?._id
-                      )
-                    }
-                    className="btn bg-[#00d2d3] rounded-lg text-white"
-                  >
-                    Wishlist
-                  </Button>
+                  {user ? (
+                    <Button
+                      onClick={() =>
+                        handleWishlist(
+                          blog?.formattedDate,
+                          blog?.categories,
+                          blog?.long,
+                          blog?.short,
+                          blog?.title,
+                          blog?.photo,
+                          blog?._id
+                        )
+                      }
+                      className="btn bg-[#00d2d3] rounded-lg text-white"
+                    >
+                      Wishlist
+                    </Button>
+                  ) : (
+                    <Button
+                      onClick={() => handleWishlist2}
+                      className="btn bg-[#00d2d3] rounded-lg text-white"
+                    >
+                     without login you cant added Wishlist
+                    </Button>
+                  )}
                 </div>
               </div>
             </div>

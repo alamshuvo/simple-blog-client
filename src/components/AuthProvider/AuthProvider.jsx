@@ -59,6 +59,10 @@ const updateProfileUser=(name,img)=>{
 //  Auth state change 
 useEffect(()=>{
     const unSubcribe= onAuthStateChanged(auth,curentUser=>{
+
+
+        const userEmail=curentUser?.email || user?.email;
+        const logedUserEmail={email:userEmail}
            setUser(curentUser);
 
           
@@ -68,12 +72,18 @@ useEffect(()=>{
            setError(false)
         //    if user exist you shoud use a token
            if (curentUser) {
-            const logedUserEmail={email:curentUser.email}
+            
             axios.post('http://localhost:5000/jwt',logedUserEmail,{withCredentials:true})
             .then(res=>{
                 console.log("token response",res.data);
             })
             
+           }
+           else{
+            axios.post('http://localhost:5000/logout',logedUserEmail,{withCredentials:true})
+            .then(res=>{
+                console.log("token response",res.data);
+            })
            }
 
        })

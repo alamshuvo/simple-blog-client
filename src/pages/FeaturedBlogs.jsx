@@ -16,7 +16,7 @@ const FeaturedBlogs = () => {
   const { data: blogs, isPending } = useQuery({
     queryKey: ["blogs"],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/blog`);
+      const res = await fetch(`http://localhost:5000/featured`);
       return res.json();
     },
   });
@@ -30,13 +30,9 @@ const FeaturedBlogs = () => {
     id: index,
   }));
 
-//   const filteredData = blogs?.reduce((accumulator, item) => {
-//     if (item.long >  item.long ) {
-//         accumulator.push(item);
-//     }
-//     return accumulator;
-// }, []);
-// console.log(filteredData);
+if (isPending) {
+  return <p>Loading...........</p>
+}
 
 
 
