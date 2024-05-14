@@ -160,6 +160,9 @@ const AllBlogs = () => {
                       <p className="text-tiny mt-2 uppercase font-bold">
                         {blog?.title}
                       </p>
+                      <p className="text-tiny mt-2 uppercase font-bold">
+                       Categories :  {blog?.categories}
+                      </p>
                       <p className="text-red-500 mt-2">
                         Added Time : {blog?.formattedDate}
                       </p>
