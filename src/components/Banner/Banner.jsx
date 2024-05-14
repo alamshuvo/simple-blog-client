@@ -25,7 +25,7 @@ const Banner = () => {
               <h1 className="md:text-3xl text-2xl font-bold text-[#14261C] text-center">
                 Welcome to Simple Blog
               </h1>
-              <p className="md:text-[#4F5655] text-gray-50">
+              <p className="md:text-[#4F5655] text-black">
                 "Welcome to Our Simple Blog: Your Gateway to Knowledge,
                 Inspiration, and Connection! Dive into a world of endless
                 possibilities as you explore our diverse collection of articles,

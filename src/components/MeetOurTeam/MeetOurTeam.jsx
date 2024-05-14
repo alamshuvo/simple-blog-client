@@ -18,6 +18,32 @@ const MeetOurTeam = () => {
     speed: 2000,
     autoplaySpeed: 2000,
     cssEase: "linear",
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
   return (
     <div className=" ">
@@ -26,7 +52,7 @@ const MeetOurTeam = () => {
           Meet Our Team
         </h1>
       </div>
-      <div className="slider-container w-4/6 mx-auto min-h-screen  ">
+      <div className="slider-container w-5/6  md:w-4/6 mx-auto min-h-screen  ">
         <Slider {...settings} className="h-full shadow-[#00AC97] shadow-xl">
           <div className="">
             <Image

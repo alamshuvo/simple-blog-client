@@ -127,13 +127,13 @@ if (ispending2) {
             </div>
             <div className="md:w-2/6">
               <div>
-                <p className="text-[#00AC97] border-b-2">
+                <p className=" text-[#14261C] border-b-2">
                   <span className="text-[#14261C] font-bold">
                     Short Description:
                   </span>{" "}
                   {blogs?.short}
                 </p>
-                <p className="text-[#00AC97]">
+                <p className="text-[#14261C]">
                   <span className="text-[#14261C] font-bold">
                     Long Description:
                   </span>
@@ -153,19 +153,20 @@ if (ispending2) {
                 </Link>
               </div>
               ) : (
-                <div className="bg-[#00AC97] p-5 rounded-lg">
-                <p className="text-2xl text-[#F3F6F3] font-bold ">
+                <div className="bg-[#F3F6F3] text-[#14261C] shadow-[#00AC97] shadow-xl p-5 rounded-lg">
+                <p className="text-2xl  font-bold ">
                   You Can Comment Here
                 </p>
                <form onSubmit={handleComment}>
+                
                <Textarea
                name="comment"
-                  label="Description"
+               label="Description"
                   labelPlacement="outside"
                   placeholder="Enter your description"
-                  className=" bg-[#F3F6F3] text-[#00AC97] rounded-lg mt-2"
+                  className=" bg-[#F3F6F3] shadow-[#00AC97] shadow-xl text-[#00AC97] rounded-lg mt-2 p-2"
                 />
-                <input type="submit"  className="w-full bg-[#00d2d3] p-3 rounded-lg cursor-pointer mt-5"/>
+                <input type="submit"  className="w-full text-white bg-[#00d2d3] p-3 rounded-lg cursor-pointer mt-5"/>
                </form>
                {
                 comments?.map(comment=><div key={comment._id}>
