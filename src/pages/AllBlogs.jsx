@@ -9,12 +9,14 @@ import {
   DropdownMenu,
   DropdownItem,
 } from "@nextui-org/react";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../components/AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 
 const AllBlogs = () => {
   const { user, error } = useContext(AuthContext);
+  const [filter, setFilter] = useState('');
+  const [filteredata,setFilteredata]=useState([]);
   const { data: blogs, isPending } = useQuery({
     queryKey: ["blogs"],
     queryFn: async () => {
@@ -55,30 +57,18 @@ const AllBlogs = () => {
       });
     console.log(id);
   };
+    useEffect(() => {
+      // Filter the bid array based on the selected category
+      const filteredData = blogs.filter((item) =>
+          filter ? item.categories === filter : true
+      );
+      // setFilter(filteredData);
+      setFilteredata(filteredData)
+  }, [blogs,filter]);
 
-  // const handleCreative=(text)=>{
-  //   console.log(text);
-  // }
-  // const handleHelth=(text)=>{
-  //   console.log(text);
-  // }
-  // const handleTech=(text)=>{
-  //   console.log(text);
-  // }
-  // const handleTravel=(text)=>{
-  //   console.log(text);
-  // }
-  // const handleFood=(text)=>{
-  //   console.log(text);
-  // }
-  // const handleMind=(text)=>{
-  //   console.log(text);
-  // }
-  // const handleCreative=(text)=>{
-  //   console.log(text);
-  // }
+ 
 
-  console.log(blogs);
+
 
   return (
     <div>
@@ -88,50 +78,36 @@ const AllBlogs = () => {
       <div className=" md:p-5 p-2 mt-5 mb-5 rounded-2xl">
         <h1 className="text-3xl font-bold text-center underline  text-[#14261C] ">
           All Blogs
-         
         </h1>
       </div>
       <div>
         <div className="z-100  md:p-5 p-2 mt-5 mb-5 flex justify-center items-center rounded-2xl">
-          <Dropdown className=" bg-[#F3F6F3] z-100 ">
-            <DropdownTrigger>
-              <Button variant="Filterd By Categorie">
-                Filterd By Categories
-              </Button>
-            </DropdownTrigger>
-            <DropdownMenu aria-label="Static Actions">
-              <DropdownItem key="The Creative Corner">
-                The Creative Corner
-              </DropdownItem>
+          <div className="relative flex flex-col items-center">
+            <h6 className="font-lato py-2 font-bold font-2xl">Filterd By Categorie:</h6>
 
-              <DropdownItem key="Health & Wellness Hub">
-                {" "}
-                Health & Wellness Hub
-              </DropdownItem>
-              <DropdownItem key="Tech Talk Central">
-                Tech Talk Central
-              </DropdownItem>
-              <DropdownItem key="Travel Tales & Adventures">
-                Travel Tales & Adventures
-              </DropdownItem>
-              <DropdownItem key=" Foodie Finds & Culinary Delights">
-                {" "}
-                Foodie Finds & Culinary Delights
-              </DropdownItem>
-              <DropdownItem key="Mindful Living Magazine">
-                {" "}
-                Mindful Living Magazine
-              </DropdownItem>
-
-              {/* <DropdownItem key="delete" className="text-danger" color="danger">
-                Delete file
-              </DropdownItem> */}
-            </DropdownMenu>
-          </Dropdown>
+            <select
+              onChange={(e) => setFilter(e.target.value)}
+              name="categories"
+              value={filter}
+              className="px-4 py-3.5 bg-[#dee1e4] text-black md:w-2/4 m-auto text-sm border-2 border-gray-100 focus:border-blue-500  outline-[#007bff] w-full"
+            >
+              <option value="">Select an option</option>
+              <option value="The Creative Corner">"The Creative Corner"</option>
+              <option value="Health & Wellness Hub">"Health & Wellness Hub"</option>
+              <option value="Tech Talk Central">"Tech Talk Central"</option>
+              <option value=" Foodie Finds & Culinary Delights">" Foodie Finds & Culinary Delights"</option>
+              <option value="Travel Tales & Adventures">"Mindful Living Magazine"</option>
+              <option value="Career Compass: Navigating Your Professional Journey">"Career Compass: Navigating Your Professional Journey"</option>
+            
+            </select>
+          </div>
         </div>
         <div>
-          {blogs?.map((blog) => (
-            <div key={blog._id} className="md:w-4/6 p-2 mx-auto shadow-[#00AC97] shadow-xl ">
+          {filteredata?.map((blog) => (
+            <div
+              key={blog._id}
+              className="md:w-4/6 p-2 mx-auto shadow-[#00AC97] shadow-xl "
+            >
               <div className="w-full mb-5 mt-4  ">
                 <Card className="py-4 z-[-100] bg-[#F3F6F3] p-4 rounded-lg text-black shadow-lg">
                   <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
@@ -139,9 +115,13 @@ const AllBlogs = () => {
                       <p className="text-tiny mt-2 uppercase font-bold">
                         {blog?.title}
                       </p>
-                      <p className="text-red-500 mt-2">Added Time : {blog?. formattedDate}</p>
+                      <p className="text-red-500 mt-2">
+                        Added Time : {blog?.formattedDate}
+                      </p>
                     </div>
-                    <small className="text-default-500 mt-2">{blog?.short}</small>
+                    <small className="text-default-500 mt-2">
+                      {blog?.short}
+                    </small>
                   </CardHeader>
                   <CardBody className="overflow-visible py-2">
                     <div className="overflow-hidden">
