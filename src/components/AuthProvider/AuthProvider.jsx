@@ -5,6 +5,7 @@ import { createContext, useEffect, useState } from "react";
 
 import { getAuth } from "firebase/auth";
 import { app } from "../../Firebase/Firebase.config";
+import axios from "axios";
 
 export const AuthContext=createContext(null);
 const auth=getAuth(app)
@@ -59,8 +60,22 @@ const updateProfileUser=(name,img)=>{
 useEffect(()=>{
     const unSubcribe= onAuthStateChanged(auth,curentUser=>{
            setUser(curentUser);
+
+          
+
+
            setLoading(false);
            setError(false)
+        //    if user exist you shoud use a token
+           if (curentUser) {
+            const logedUserEmail={email:curentUser.email}
+            axios.post('http://localhost:5000/jwt',logedUserEmail,{withCredentials:true})
+            .then(res=>{
+                console.log("token response",res.data);
+            })
+            
+           }
+
        })
        return ()=>
        {

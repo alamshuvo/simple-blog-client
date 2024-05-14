@@ -18,9 +18,12 @@ const AllBlogs = () => {
   const { data: blogs, isPending } = useQuery({
     queryKey: ["blogs"],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/blog/`);
+      const res = await fetch(`http://localhost:5000/blog`);
+    
       return res.json();
     },
+  
+   
   });
 
   const handleWishlist = (c, d, e, f, g, h, i) => {
@@ -57,7 +60,7 @@ const AllBlogs = () => {
   };
   useEffect(() => {
   
-    const filteredData = blogs.filter((item) =>
+    const filteredData = blogs?.filter((item) =>
       filter ? item.categories === filter : true
     );
    
@@ -70,7 +73,7 @@ const AllBlogs = () => {
 
 
 
-  const handleTitle=(e)=>{
+  const handleTitle= async(e)=>{
     console.log(e);
     setValue(e);
     // const filterdata=blogs.filter((item)=>{
@@ -82,8 +85,11 @@ const AllBlogs = () => {
     // axios.post('http://localhost:5000/blog',e)
     // .then(res=>{console.log(res.data)})
     // .catch(error=>{console.log(error);})
+   
 
   }
+
+
 // console.log(value);
   return (
     <div>

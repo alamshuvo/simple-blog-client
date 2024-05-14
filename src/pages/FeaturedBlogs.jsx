@@ -6,6 +6,7 @@ import 'ka-table/style.css';
 import { Table } from 'ka-table';
 import { DataType, EditingMode, SortingMode } from 'ka-table/enums';
 import { useQuery } from "@tanstack/react-query";
+import { Avatar } from "@nextui-org/react";
 
 
 
@@ -25,7 +26,7 @@ const FeaturedBlogs = () => {
     SerialNumber: index+1,
     blogTitle: blog?.title,
     userName: blog?.userName,
-    ProfilePicture: blog?.photo,
+    ProfilePicture:blog?.userPhoto,
     id: index,
   }));
 
@@ -60,13 +61,12 @@ const FeaturedBlogs = () => {
       editingMode={EditingMode.Cell}
       rowKeyField={'id'}
       sortingMode={SortingMode.Single}
-      formatItemField={(fieldKey, value) =>
-        fieldKey == "ProfilePicture" ? (
-          <img src={value} alt="Owner Pic" style={{ maxWidth: "50px" }} />
-        ) : (
-          value
-        )
-      }
+      format= {({ column, value }) => {
+        if (column.key === 'ProfilePicture'){
+            return  <Avatar className="w-[100px] h-[100px]" isBordered radius="sm" src={value} />;
+        }
+       
+    }}
     />
     </div>
   );

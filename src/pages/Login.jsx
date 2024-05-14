@@ -37,7 +37,17 @@ const Login = () => {
       navigate(from)
   }
   })
-  .catch(error=>{console.log(error);})
+  .catch(error=>{
+    if (error) {
+      Swal.fire({
+          icon: "error",
+          title: "Opps",
+          text: "Something went wrong you email or password is not correct!",
+          footer: '<a href="#">Why do I have this issue?</a>'
+        })}
+    console.log(error);
+  
+  })
 
  }
  const handleGoogleLogin=()=>{
