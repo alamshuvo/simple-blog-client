@@ -3,20 +3,18 @@ import { Helmet } from "react-helmet-async";
 import { Card, CardHeader, CardBody, Button } from "@nextui-org/react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import {
-  Dropdown,
-  DropdownTrigger,
-  DropdownMenu,
-  DropdownItem,
-} from "@nextui-org/react";
+import {Textarea} from "@nextui-org/react";
+
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../components/AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 
 const AllBlogs = () => {
   const { user, error } = useContext(AuthContext);
-  const [filter, setFilter] = useState('');
-  const [filteredata,setFilteredata]=useState([]);
+  const [filter, setFilter] = useState("");
+  const [filteredata, setFilteredata] = useState([]);
+  const [searchData, setSearchData] = useState('');
+  const [value, setValue] =useState("");
   const { data: blogs, isPending } = useQuery({
     queryKey: ["blogs"],
     queryFn: async () => {
@@ -57,19 +55,36 @@ const AllBlogs = () => {
       });
     console.log(id);
   };
-    useEffect(() => {
-      // Filter the bid array based on the selected category
-      const filteredData = blogs.filter((item) =>
-          filter ? item.categories === filter : true
-      );
-      // setFilter(filteredData);
-      setFilteredata(filteredData)
-  }, [blogs,filter]);
+  useEffect(() => {
+  
+    const filteredData = blogs.filter((item) =>
+      filter ? item.categories === filter : true
+    );
+   
+
+    setFilteredata(filteredData);
+  }, [blogs, filter]);
+
 
  
 
 
 
+  const handleTitle=(e)=>{
+    console.log(e);
+    setValue(e);
+    // const filterdata=blogs.filter((item)=>{
+    //   filter ? item.title === filter : true
+    // })
+    // setFilteredata(filterdata)
+    setSearchData(e)
+    console.log(searchData);
+    // axios.post('http://localhost:5000/blog',e)
+    // .then(res=>{console.log(res.data)})
+    // .catch(error=>{console.log(error);})
+
+  }
+// console.log(value);
   return (
     <div>
       <Helmet>
@@ -82,24 +97,47 @@ const AllBlogs = () => {
       </div>
       <div>
         <div className="z-100  md:p-5 p-2 mt-5 mb-5 flex justify-center items-center rounded-2xl">
-          <div className="relative flex flex-col items-center">
-            <h6 className="font-lato py-2 font-bold font-2xl">Filterd By Categorie:</h6>
+          <div className="relative flex md:flex-row flex-col gap-5 justify-between items-center rounded-lg shadow-[#00AC97] shadow-xl p-5">
+            <h6 className="font-lato py-2 font-bold font-2xl">
+              Filterd By Categorie:
+            </h6>
 
             <select
               onChange={(e) => setFilter(e.target.value)}
               name="categories"
               value={filter}
-              className="px-4 py-3.5 bg-[#dee1e4] text-black md:w-2/4 m-auto text-sm border-2 border-gray-100 focus:border-blue-500  outline-[#007bff] w-full"
+              className="px-4 py-3.5 bg-[#dee1e4] text-black md:w-2/4 m-auto text-sm border-2 border-gray-100 shadow-[#00AC97] shadow-xl w-full"
             >
-              <option value="">Select an option</option>
+              <option value="">All Categories</option>
               <option value="The Creative Corner">"The Creative Corner"</option>
-              <option value="Health & Wellness Hub">"Health & Wellness Hub"</option>
+              <option value="Health & Wellness Hub">
+                "Health & Wellness Hub"
+              </option>
               <option value="Tech Talk Central">"Tech Talk Central"</option>
-              <option value=" Foodie Finds & Culinary Delights">" Foodie Finds & Culinary Delights"</option>
-              <option value="Travel Tales & Adventures">"Mindful Living Magazine"</option>
-              <option value="Career Compass: Navigating Your Professional Journey">"Career Compass: Navigating Your Professional Journey"</option>
-            
+              <option value=" Foodie Finds & Culinary Delights">
+                " Foodie Finds & Culinary Delights"
+              </option>
+              <option value="Travel Tales & Adventures">
+                "Mindful Living Magazine"
+              </option>
+              <option value="Career Compass: Navigating Your Professional Journey">
+                "Career Compass: Navigating Your Professional Journey"
+              </option>
             </select>
+            <div className="w-full shadow-[#00AC97] shadow-xl p-5 flex flex-col gap-2 max-w-[240px]">
+              <Textarea
+                variant="underlined"
+                label="Search Here"
+                labelPlacement="outside"
+                placeholder="Search Here By Your Blogs Title"
+                value={value}
+                onValueChange={setValue}
+              />
+              <p className="text-default-500 text-small">
+                Textarea value: {value}
+              </p>
+              <button onClick={()=>handleTitle(value)} className="btn p-2 shadow-[#00AC97] shadow-xl rounded-lg bg-[#00AC97] text-white">Search</button>
+            </div>
           </div>
         </div>
         <div>
