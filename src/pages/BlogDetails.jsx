@@ -13,25 +13,25 @@ const BlogDetails = () => {
   const { user } = useContext(AuthContext);
   const { id } = useParams();
   // const [comments,setComments]=useState([])
-  console.log(id);
+  // console.log(id);
   const { data: blogs, isPending } = useQuery({
     queryKey: ["blogs",id],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/blog/id/${id}`)
+      const res = await fetch(`https://simple-blog-server-two.vercel.app/blog/id/${id}`)
       return res.json();
     },
   });
   const { data: comments, isPending :ispending2,refetch } = useQuery({
     queryKey: ["comments",id],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/comment/id/${id}`);
+      const res = await fetch(`https://simple-blog-server-two.vercel.app/comment/id/${id}`);
       return res.json();
     },
   });
 
 
   const ownerOfBlog = user?.email == blogs?.userEmail;
-  console.log(ownerOfBlog);
+  // console.log(ownerOfBlog);
 
   const handleComment=(e)=>{
     e.preventDefault();
@@ -43,9 +43,9 @@ const BlogDetails = () => {
     const newComment={id,userName,userEmail,comment,userPhoto}
 
 
-    axios.post('http://localhost:5000/comment',newComment)
+    axios.post('https://simple-blog-server-two.vercel.app/comment',newComment)
     .then(res=>{
-      console.log(res.data)
+      // console.log(res.data)
       if (res.data.insertedId) {
         refetch()
         Swal.fire({

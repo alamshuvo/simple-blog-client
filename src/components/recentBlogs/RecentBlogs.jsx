@@ -12,7 +12,7 @@ const RecentBlogs = () => {
   const { data: blogs = [], isPending } = useQuery({
     queryKey: ["blogs"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/blog");
+      const res = await fetch("https://simple-blog-server-two.vercel.app/blog");
       return res.json();
     },
   });
@@ -46,9 +46,9 @@ const RecentBlogs = () => {
     };
 
     axios
-      .post("http://localhost:5000/wishlist", id)
+      .post("https://simple-blog-server-two.vercel.app/wishlist", id)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         if (!error) {
           Swal.fire({
             icon: "success",
@@ -59,10 +59,10 @@ const RecentBlogs = () => {
         }
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
 
-    console.log(id);
+    // console.log(id);
   };
 
  

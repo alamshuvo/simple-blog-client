@@ -16,11 +16,11 @@ const FeaturedBlogs = () => {
   const { data: blogs, isPending } = useQuery({
     queryKey: ["blogs"],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/featured`);
+      const res = await fetch(`https://simple-blog-server-two.vercel.app/featured`);
       return res.json();
     },
   });
-  console.log(blogs);
+  // console.log(blogs);
   const dataArray = blogs?.slice(0,10)
   .map((blog, index) => ({
     SerialNumber: index+1,

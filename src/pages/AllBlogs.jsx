@@ -18,7 +18,7 @@ const AllBlogs = () => {
   const { data: blogs, isPending } = useQuery({
     queryKey: ["blogs"],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/blog`);
+      const res = await fetch(`https://simple-blog-server-two.vercel.app/blog`);
 
       return res.json();
     },
@@ -47,9 +47,9 @@ const AllBlogs = () => {
       unique: i,
     };
     axios
-      .post("http://localhost:5000/wish", id)
+      .post("https://simple-blog-server-two.vercel.app/wish", id)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         if (!error) {
           Swal.fire({
             icon: "success",
@@ -60,9 +60,9 @@ const AllBlogs = () => {
         }
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
-    console.log(id);
+    // console.log(id);
   };
   useEffect(() => {
     const filteredData = blogs?.filter((item) =>
@@ -73,7 +73,7 @@ const AllBlogs = () => {
   }, [blogs, filter]);
 
   const handleTitle = async (e) => {
-    console.log(e);
+    // console.log(e);
     setValue(e);
     // const filterdata=blogs.filter((item)=>{
     //   filter ? item.title === filter : true
@@ -81,7 +81,7 @@ const AllBlogs = () => {
     // setFilteredata(filterdata)
     setSearchData(e);
     console.log(searchData);
-    // axios.post('http://localhost:5000/blog',e)
+    // axios.post('https://simple-blog-server-two.vercel.app/blog',e)
     // .then(res=>{console.log(res.data)})
     // .catch(error=>{console.log(error);})
   };

@@ -10,7 +10,7 @@ const Newslatter = () => {
         const email=form.email.value;
         const user={name:name,
         email:email};
-        console.log(user);
+        // console.log(user);
        if (user.email||user.name) {
         Swal.fire({
           position: "top-end",

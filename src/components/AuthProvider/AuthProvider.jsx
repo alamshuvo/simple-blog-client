@@ -73,14 +73,14 @@ useEffect(()=>{
         //    if user exist you shoud use a token
            if (curentUser) {
             
-            axios.post('http://localhost:5000/jwt',logedUserEmail,{withCredentials:true})
+            axios.post('https://simple-blog-server-two.vercel.app/jwt',logedUserEmail,{withCredentials:true})
             .then(res=>{
-                console.log("token response",res.data);
+                // console.log("token response",res.data);
             })
             
            }
            else{
-            axios.post('http://localhost:5000/logout',logedUserEmail,{withCredentials:true})
+            axios.post('https://simple-blog-server-two.vercel.app/logout',logedUserEmail,{withCredentials:true})
             .then(res=>{
                 console.log("token response",res.data);
             })

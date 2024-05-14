@@ -17,7 +17,7 @@ import { NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 const Nabbar = () => {
     const { user, loading, signOutproile } = useContext(AuthContext);
-    console.log(user);
+    // console.log(user);
 
     const handleSignOut=()=>{
       signOutproile()

@@ -29,12 +29,13 @@ const handleAddBlog=(e)=>{
   const userPhoto=user?.photoURL;
   const currentDate = new Date();
 const formattedDate = currentDate.toLocaleString();
-console.log(currentDate);
+// console.log(currentDate);
 
   const blog={title,categories,short,long,photo,userEmail,formattedDate,userName,userPhoto};
-  console.log(blog);
-  axios.post('http://localhost:5000/blog',blog)
-  .then(res=>{console.log(res.data);
+  // console.log(blog);
+  axios.post('https://simple-blog-server-two.vercel.app/blog',blog)
+  .then(res=>{
+    // console.log(res.data);
     Swal.fire({
       icon: "success",
       title: "WOW",
@@ -43,7 +44,9 @@ console.log(currentDate);
     });
     navigate(from)
   })
-  .catch(error=>{console.log(error);})
+  .catch(error=>{
+    // console.log(error);
+  })
 
  
 }

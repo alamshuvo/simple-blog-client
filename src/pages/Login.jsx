@@ -24,7 +24,8 @@ const Login = () => {
   const email=form.email.value;
   const password=form.password.value;
   loginUser(email,password)
-  .then(res=>{console.log(res.user);
+  .then(res=>{
+    // console.log(res.user);
     if (!error) {
       Swal.fire({
           icon: "success",
@@ -45,14 +46,15 @@ const Login = () => {
           text: "Something went wrong you email or password is not correct!",
           footer: '<a href="#">Why do I have this issue?</a>'
         })}
-    console.log(error);
+    // console.log(error);
   
   })
 
  }
  const handleGoogleLogin=()=>{
   signinWithGoogle()
-  .then(res=>{console.log(res.user);
+  .then(res=>{
+    // console.log(res.user);
     if (!error) {
       Swal.fire({
           icon: "success",
@@ -65,7 +67,9 @@ const Login = () => {
       navigate(from)
   }
   })
-  .catch(error=>{console.log(error);})
+  .catch(error=>{
+    // console.log(error);
+  })
  }
 
 

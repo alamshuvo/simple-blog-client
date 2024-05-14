@@ -18,13 +18,13 @@ const Wishlist = () => {
     queryKey: ["blogs", user?.email],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/wishlist/wish/${user?.email}`,
+        `https://simple-blog-server-two.vercel.app/wishlist/wish/${user?.email}`,
       );
 
       return res.json();
     },
   });
-  console.log(blogs);
+  // console.log(blogs);
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -37,13 +37,13 @@ const Wishlist = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/wishlist/wish/${id}`, {
+        fetch(`https://simple-blog-server-two.vercel.app/wishlist/wish/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
-              console.log(data);
+              // console.log(data);
               Swal.fire({
                 title: "Deleted!",
                 text: "Your wishlist Items has been deleted.",

@@ -1,6 +1,6 @@
 # Simple Blog
 # This Website Name is Simple Blog
-# Live site link : 
+# Live site link : https://simple-blog-e67d9.web.app/
 
 
 # Features and characteristics of My website

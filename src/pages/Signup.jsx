@@ -42,7 +42,7 @@ const Signup = () => {
     }
     registerUser(email, password)
       .then((res) => {
-        console.log(res.user);
+        // console.log(res.user);
         if (!error) {
           Swal.fire({
             icon: "success",
@@ -51,7 +51,7 @@ const Signup = () => {
             footer: '<a href="#">Why do I have this issue?</a>',
           });
           updateProfileUser(name, photo).then((res) => {
-            console.log(res);
+            // console.log(res);
             setTimeout(() => {
               window.location.reload();
             }, 1000);
@@ -68,7 +68,7 @@ const Signup = () => {
             footer: '<a href="#">Why do I have this issue?</a>',
           });
         }
-        console.log(error);
+        // console.log(error);
       });
   };
   return (
