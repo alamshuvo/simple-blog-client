@@ -18,7 +18,7 @@ const Wishlist = () => {
     queryKey: ["blogs", user?.email],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/wishlist/wish/${user?.email}`
+        `http://localhost:5000/wishlist/wish/${user?.email}`,
       );
 
       return res.json();
