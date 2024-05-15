@@ -56,7 +56,7 @@ const MeetOurTeam = () => {
           data-aos-duration="1500"
           className="mt-2">Get to know the passionate and dedicated individuals behind our success! Our team is composed of experts from various fields, each bringing their unique skills and perspectives to the table. We believe in the power of collaboration and innovation, and our team's diverse backgrounds help us tackle challenges and achieve remarkable results. In this section, you'll find detailed profiles of our team members, including their roles, experiences, and what drives them. Discover the faces and stories behind our organization and see how their commitment to excellence shapes everything we do. We're excited to share our journey with you and introduce you to the people who make it all possible!</p>
       </div>
-      <div className="slider-container w-5/6  md:w-4/6 mx-auto min-h-screen  ">
+      <div className="slider-container w-5/6  md:w-4/6 mx-auto md:min-h-screen  ">
         <Slider {...settings} className="h-full shadow-[#00AC97] shadow-xl">
           <div className="">
             <Image

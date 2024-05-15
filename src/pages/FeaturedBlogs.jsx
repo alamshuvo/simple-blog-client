@@ -19,7 +19,23 @@ const FeaturedBlogs = () => {
     },
   });
   // console.log(blogs);
-  const dataArray = blogs?.slice(0, 10).map((blog, index) => ({
+
+  const calculateWordCount = (text) => {
+    return text ? text.split(" ").length : 0;
+  };
+
+  const sortedPosts = blogs?.sort((a, b) => {
+    return (
+      calculateWordCount(b.long) -
+      calculateWordCount(a.long)
+    );
+  });
+
+  const topPosts = sortedPosts?.slice(0, 10);
+
+
+  
+  const dataArray = topPosts?.slice(0, 10).map((blog, index) => ({
     SerialNumber: index + 1,
     blogTitle: blog?.title,
     userName: blog?.userName,
