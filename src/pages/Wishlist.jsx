@@ -6,6 +6,8 @@ import { Button } from "@nextui-org/react";
 import { Card, CardHeader, CardBody } from "@nextui-org/react";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const Wishlist = () => {
   const { user } = useContext(AuthContext);
@@ -57,7 +59,28 @@ const Wishlist = () => {
   };
 
   if (isPending) {
-    return <p>Loading..............</p>;
+    return (
+      <SkeletonTheme baseColor="#7B9FC4" highlightColor="#444">
+        <div className="grid md:grid-cols-3 grid-cols-1 md:w-2/4 mx-auto items-center min-h-screen gap-5">
+          <div>
+            <p>
+              <Skeleton count={5} />
+            </p>
+          </div>
+          <div>
+            <p>
+              <Skeleton count={5} />
+            </p>
+          </div>
+          <div>
+            <p>
+              <Skeleton count={5} />
+            </p>
+          </div>
+          
+        </div>
+      </SkeletonTheme>
+    );
   }
   return (
     <div>

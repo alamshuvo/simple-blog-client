@@ -7,6 +7,8 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { config } from "localforage";
 import Swal from "sweetalert2";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const UpdateBlog = () => {
   const { user } = useContext(AuthContext);
@@ -54,10 +56,30 @@ const UpdateBlog = () => {
       });
   };
 
-if (isPending) {
-    return <p>Loading......</p>
-}
-
+  if (isPending) {
+    return (
+      <SkeletonTheme baseColor="#7B9FC4" highlightColor="#444">
+        <div className="grid md:grid-cols-3 grid-cols-1 md:w-2/4 mx-auto items-center min-h-screen gap-5">
+          <div>
+            <p>
+              <Skeleton count={5} />
+            </p>
+          </div>
+          <div>
+            <p>
+              <Skeleton count={5} />
+            </p>
+          </div>
+          <div>
+            <p>
+              <Skeleton count={5} />
+            </p>
+          </div>
+          
+        </div>
+      </SkeletonTheme>
+    );
+  }
 
   return (
     <div className="">

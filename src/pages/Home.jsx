@@ -16,17 +16,17 @@ const Home = () => {
         <title>Simple Blog | Home</title>
       </Helmet>
       <div className="space-y-5 bg-[#F3F6F3]">
-        <div>
+        <div className="mb-5">
             <Banner></Banner>
         </div>
      
-        <div className=" container mx-auto">
+        <div className=" mt-5 mb-5 container mx-auto space-y-5">
           <RecentBlogs></RecentBlogs>
         </div>
-        <div className="container mx-auto">
+        <div className="mt-5 mb-5 container mx-auto space-y-5">
             <Newslatter></Newslatter>
         </div>
-        <div className="container mx-auto">
+        <div className="mt-5 mb-5 container mx-auto space-y-5">
           <MeetOurTeam></MeetOurTeam>
         </div>
         

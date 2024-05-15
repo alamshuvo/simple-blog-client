@@ -119,16 +119,16 @@ const Login = () => {
             </div>
           </form>
           <div>
-            <p>Login With Another way</p>
-            <div className="flex justify-start items-center">
-            Google Login  <FaArrowRight />
-              <button onClick={handleGoogleLogin}>
-               
-                <FcGoogle className="text-3xl" />
+            <p className="text-center md:text-3xl text-2xl  font-bold">Login With Another way</p>
+            <div className="">
+           
+              <button onClick={handleGoogleLogin} className="btn w-full  bg-[#30C7B5] p-3 rounded-lg text-white mt-5 flex justify-center items-center gap-2 hover:bg-transparent hover:text-green-950">
+              Google Login <FcGoogle className="text-3xl" />
+                
               </button>
             </div>
           </div>
-          <p>
+          <p className="mt-5 md:text-3xl tex2 text-center font-bold">
             New Here ?{" "}
             <Link className="text-[#00AC97]" to={"/registation"}>
               Sign Up

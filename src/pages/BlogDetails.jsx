@@ -6,6 +6,8 @@ import { useQuery } from "@tanstack/react-query";
 import { Avatar, Textarea } from "@nextui-org/react";
 import axios from "axios";
 import Swal from "sweetalert2";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 
 const BlogDetails = () => {
@@ -89,13 +91,54 @@ const BlogDetails = () => {
   //   });
   // }
   
-if (isPending) {
-  return <p>loading..........</p>
-}
-if (ispending2) {
-  return <p>loading..........</p>
-}
-
+  if (isPending) {
+    return (
+      <SkeletonTheme baseColor="#7B9FC4" highlightColor="#444">
+        <div className="grid md:grid-cols-3 grid-cols-1 md:w-2/4 mx-auto items-center min-h-screen gap-5">
+          <div>
+            <p>
+              <Skeleton count={5} />
+            </p>
+          </div>
+          <div>
+            <p>
+              <Skeleton count={5} />
+            </p>
+          </div>
+          <div>
+            <p>
+              <Skeleton count={5} />
+            </p>
+          </div>
+          
+        </div>
+      </SkeletonTheme>
+    );
+  }
+  if (ispending2) {
+    return (
+      <SkeletonTheme baseColor="#7B9FC4" highlightColor="#444">
+        <div className="grid md:grid-cols-3 grid-cols-1 md:w-2/4 mx-auto items-center min-h-screen gap-5">
+          <div>
+            <p>
+              <Skeleton count={5} />
+            </p>
+          </div>
+          <div>
+            <p>
+              <Skeleton count={5} />
+            </p>
+          </div>
+          <div>
+            <p>
+              <Skeleton count={5} />
+            </p>
+          </div>
+          
+        </div>
+      </SkeletonTheme>
+    );
+  }
 
 
 
@@ -145,12 +188,14 @@ if (ispending2) {
               {
               ownerOfBlog ? (
                 <div>
-                <p className="text-red-500">"Can not comment on own blog ""You can Update Your Blog"</p>
+                <p className="text-red-500">"Can not comment on own blog ""You can Update Your Blog and observe others comments "</p>
+                
                 <Link to={`/updateblog/${blogs?._id}`}>
                 <button className="w-full btn bg-[#00d2d3] p-4 rounded-lg">
                   Update
                 </button>
                 </Link>
+                
               </div>
               ) : (
                 <div className="bg-[#F3F6F3] text-[#14261C] shadow-[#00AC97] shadow-xl p-5 rounded-lg">
@@ -189,6 +234,7 @@ if (ispending2) {
                 </div>)
                }
             </div>
+            
           </div>
         </section>
       </div>

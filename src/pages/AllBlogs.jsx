@@ -8,6 +8,8 @@ import { Textarea } from "@nextui-org/react";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../components/AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const AllBlogs = () => {
   const { user, error } = useContext(AuthContext);
@@ -19,7 +21,7 @@ const AllBlogs = () => {
   const { data: blogs, isPending } = useQuery({
     queryKey: ["blogs"],
     queryFn: async () => {
-      const res = await fetch(`https://simple-blog-server-two.vercel.app/blog`,);
+      const res = await fetch(`https://simple-blog-server-two.vercel.app/blog`);
 
       return res.json();
     },
@@ -66,7 +68,6 @@ const AllBlogs = () => {
     // console.log(id);
   };
 
-  
   useEffect(() => {
     const filteredData = blogs?.filter((item) =>
       filter ? item.categories === filter : true
@@ -75,8 +76,7 @@ const AllBlogs = () => {
     setFilteredata(filteredData);
   }, [blogs, filter]);
 
-
-  const handleTitle =(e) => {
+  const handleTitle = (e) => {
     // console.log(e);
     setValue(e);
     // const filterdata=blogs.filter((item)=>{
@@ -90,6 +90,30 @@ const AllBlogs = () => {
     // .catch(error=>{console.log(error);})
   };
 
+  if (isPending) {
+    return (
+      <SkeletonTheme baseColor="#7B9FC4" highlightColor="#444">
+        <div className="grid md:grid-cols-3 grid-cols-1 md:w-2/4 mx-auto items-center min-h-screen gap-5">
+          <div>
+            <p>
+              <Skeleton count={5} />
+            </p>
+          </div>
+          <div>
+            <p>
+              <Skeleton count={5} />
+            </p>
+          </div>
+          <div>
+            <p>
+              <Skeleton count={5} />
+            </p>
+          </div>
+        </div>
+      </SkeletonTheme>
+    );
+  }
+
   console.log(value);
   return (
     <div>
@@ -97,12 +121,29 @@ const AllBlogs = () => {
         <title>Simple Blog | All Blogs</title>
       </Helmet>
       <div className=" md:p-5 p-2 mt-5 mb-5 rounded-2xl">
-        <h1 className="text-3xl font-bold text-center underline  text-[#14261C] ">
+        <h1 className="text-3xl font-bold underline  text-[#14261C] ">
           All Blogs
         </h1>
+        <p
+          className="mt-2"
+          data-aos="fade-down"
+          data-aos-easing="linear"
+          data-aos-duration="1500"
+        >
+          Welcome to the All Blogs page! This is your one-stop destination to
+          explore a diverse range of blog posts contributed by our community of
+          users. Here, you'll find a wide variety of topics covered, from
+          technology and lifestyle to travel and personal stories. Each post is
+          categorized for easy navigation, allowing you to find content that
+          interests you quickly. Dive into the thoughts and experiences of
+          different writers, gain new perspectives, and discover valuable
+          insights. Whether you're looking for inspiration, information, or just
+          a good read, the All Blogs page has something for everyone. Enjoy
+          exploring our extensive collection of blog posts!
+        </p>
       </div>
       <div>
-        <div className="z-100  md:p-5 p-2 mt-5 mb-5 flex justify-center items-center rounded-2xl">
+        <div className="z-100  md:p-5 p-2 mt-5 mb-5 flex  justify-center items-center rounded-2xl">
           <div className="relative flex md:flex-row flex-col gap-5 justify-between items-center rounded-lg shadow-[#00AC97] shadow-xl p-5">
             <h6 className="font-lato py-2 font-bold font-2xl">
               Filterd By Categorie:
@@ -155,17 +196,20 @@ const AllBlogs = () => {
           {filteredata?.map((blog) => (
             <div
               key={blog._id}
-              className="md:w-4/6 p-2 mx-auto shadow-[#00AC97] shadow-xl "
+              className="md:w-4/6 p-2  mb-4 mt-4 mx-auto shadow-[#00AC97] shadow-xl "
+              data-aos="fade-down"
+              data-aos-easing="linear"
+              data-aos-duration="1500"
             >
-              <div className="w-full mb-5 mt-4  ">
-                <Card className="py-4 z-[-100] bg-[#F3F6F3] p-4 rounded-lg text-black shadow-lg">
+              <div className="w-full mb-5 mt-4 h-full ">
+                <Card className="py-4 z-[-100] h-[600px] bg-[#F3F6F3] p-4 rounded-lg text-black shadow-lg">
                   <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
                     <div>
                       <p className="text-tiny mt-2 uppercase font-bold">
                         {blog?.title}
                       </p>
                       <p className="text-tiny mt-2 text-red-500 uppercase font-bold">
-                       Categories :  {blog?.categories}
+                        Categories : {blog?.categories}
                       </p>
                       <p className="text-red-500 mt-2">
                         Added Time : {blog?.formattedDate}
@@ -176,12 +220,12 @@ const AllBlogs = () => {
                     </small>
                   </CardHeader>
                   <CardBody className="overflow-visible py-2">
-                    <div className="overflow-hidden">
+                    <div className="overflow-hidden  w-full">
                       <img
                         alt="Card background"
-                        className="object-cover rounded-xl cursor-pointer "
+                        className="object-cover w-full rounded-xl cursor-pointer h-full"
                         src={blog?.photo}
-                        width={500}
+                        // width={400}
                       />
                     </div>
                   </CardBody>
@@ -217,7 +261,7 @@ const AllBlogs = () => {
                       onClick={() => handleWishlist2}
                       className="btn bg-[#00d2d3] rounded-lg text-white"
                     >
-                     without login you cant added Wishlist
+                      without login you cant added Wishlist
                     </Button>
                   )}
                 </div>

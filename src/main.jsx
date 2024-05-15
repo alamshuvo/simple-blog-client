@@ -23,6 +23,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           </QueryClientProvider>
           </AuthProvider>
         </HelmetProvider>
+        
       </NextUIProvider>
     
   </React.StrictMode>
