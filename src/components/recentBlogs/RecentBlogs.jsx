@@ -117,7 +117,7 @@ const RecentBlogs = () => {
           newest entries and explore what's trending now!
         </p>
       </div>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-10  min-h-screen p-3">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-7   min-h-screen ">
         {blogs.length > 0 &&
           blogs?.slice(0, 6).map((blog) => (
             <div
@@ -125,10 +125,10 @@ const RecentBlogs = () => {
               data-aos-easing="linear"
               data-aos-duration="1500"
               key={blog._id}
-              className="p-5 rounded-lg  "
+              className=" rounded-lg w-full "
             >
-              <div className="  rounded-md  h-full shadow-[#00AC97] shadow-xl  text-[#00AC97] w-full md:p-4 ">
-                <div className="h-[100px]">
+              <div className=" border border-red-500 rounded-md  h-full shadow-[#00AC97] shadow-xl  text-[#00AC97] md:p-4 ">
+                <div className="h-[100px] w-full">
                   <p className="mb-3 text-[#14261C] ">
                     Categories: {blog?.categories}
                   </p>
@@ -136,12 +136,12 @@ const RecentBlogs = () => {
                     <p>{blog?.formattedDate}</p>
                   </div>
                 </div>
-                <div className=" rounded-lg overflow-hidden p-3">
+                <div className="w-full rounded-lg overflow-hidden p-3">
                   <div className="overflow-hidden">
                     <img
                       src={blog.photo}
                       alt=""
-                      className="w-full hover:scale-110 hover:rotate-6 duration-500  rounded-lg h-[300px] cursor-pointer"
+                      className="w-full hover:scale-110 hover:rotate-6 duration-500  rounded-lg h-[200px] cursor-pointer"
                     />
                   </div>
                 </div>

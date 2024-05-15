@@ -38,7 +38,14 @@ const AllBlogs = () => {
 
  
   
+const handleSearch=(e)=>{
+  // console.log(e);
+// console.log(filteredata);
+const n=filteredata.filter(a=>a.title.toUpperCase() === e.toUpperCase());
+// console.log("search data",n);
+setFilteredata(n);
 
+}
 
   const handleWishlist2 = () => {
     Swal.fire({
@@ -185,7 +192,7 @@ const AllBlogs = () => {
                 Textarea value: {value}
               </p>
               <button
-                // onClick={() => filterArrayByProperty(filteredata,value)}
+                onClick={() => handleSearch(value)}
                 className="btn p-2 cursor-pointer shadow-[#00AC97] shadow-xl rounded-lg bg-[#00AC97] text-white"
               >
                 Search
