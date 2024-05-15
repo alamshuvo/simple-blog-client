@@ -127,7 +127,7 @@ const RecentBlogs = () => {
               key={blog._id}
               className=" rounded-lg w-full "
             >
-              <div className=" border border-red-500 rounded-md  h-full shadow-[#00AC97] shadow-xl  text-[#00AC97] md:p-4 ">
+              <div className="  rounded-md  h-full shadow-[#00AC97] shadow-xl  text-[#00AC97] md:p-4 ">
                 <div className="h-[100px] w-full">
                   <p className="mb-3 text-[#14261C] ">
                     Categories: {blog?.categories}
