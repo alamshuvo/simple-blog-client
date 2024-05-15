@@ -3,6 +3,7 @@ import Banner from "../components/Banner/Banner";
 import Newslatter from "../components/Newslatter/Newslatter";
 import RecentBlogs from "../components/recentBlogs/RecentBlogs";
 import MeetOurTeam from "../components/MeetOurTeam/MeetOurTeam";
+import Comunity from "../components/Comunity/Comunity";
 
 
 
@@ -28,6 +29,9 @@ const Home = () => {
         </div>
         <div className="mt-5 mb-5 container mx-auto space-y-5">
           <MeetOurTeam></MeetOurTeam>
+        </div>
+        <div className="mt-5 mb-5 container mx-auto space-y-5">
+          <Comunity></Comunity>
         </div>
         
       </div>

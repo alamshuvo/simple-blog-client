@@ -127,11 +127,16 @@ const RecentBlogs = () => {
               key={blog._id}
               className="p-5 rounded-lg  "
             >
-              <div className="  rounded-md  h-full shadow-[#00AC97] shadow-xl  text-[#00AC97] w-full md:-p-5 ">
-                <div className=" rounded-lg overflow-hidden p-3">
-                  <p className="mb-3 text-[#14261C]">
+              <div className="  rounded-md  h-full shadow-[#00AC97] shadow-xl  text-[#00AC97] w-full md:p-4 ">
+                <div className="h-[100px]">
+                  <p className="mb-3 text-[#14261C] ">
                     Categories: {blog?.categories}
                   </p>
+                  <div className="">
+                    <p>{blog?.formattedDate}</p>
+                  </div>
+                </div>
+                <div className=" rounded-lg overflow-hidden p-3">
                   <div className="overflow-hidden">
                     <img
                       src={blog.photo}
@@ -141,15 +146,16 @@ const RecentBlogs = () => {
                   </div>
                 </div>
                 <div className="flex flex-col justify-between  p-6 space-y-8 ">
-                  <div className="space-y-2 h-[130px]">
-                    <h2 className="md:text-2xl text-xl text-[#14261C] font-semibold ">
+                  <div className="space-y-2 h-[150px] ">
+                    <h2 className="text-xl text-[#14261C] font-semibold ">
                       {blog?.title}
                     </h2>
+
                     <p className=" text-[#14261C]">
-                      {blog?.short.slice(0, 100)}
+                      {blog?.short.slice(0, 60)}
                     </p>
                   </div>
-                  <div className="flex justify-center  gap-2 w-4/4">
+                  <div className="flex justify-center    gap-2 w-4/4">
                     <Link
                       to={`/blogdetails/${blog?._id}`}
                       className="flex items-center justify-center  font-semibold   rounded-md bg-[#00d2d3] text-white w-2/4"

@@ -15,8 +15,8 @@ const AllBlogs = () => {
   const { user, error } = useContext(AuthContext);
   const [filter, setFilter] = useState("");
   const [filteredata, setFilteredata] = useState([]);
-  const [searchData, setSearchData] = useState("");
   const [value, setValue] = useState("");
+
 
   const { data: blogs, isPending } = useQuery({
     queryKey: ["blogs"],
@@ -26,6 +26,20 @@ const AllBlogs = () => {
       return res.json();
     },
   });
+
+
+ 
+
+
+  // const filterArrayByProperty = (array, propertyName, searchValue) => {
+  //   return array.filter(item => item[propertyName] === searchValue);
+  // };
+
+
+ 
+  
+
+
   const handleWishlist2 = () => {
     Swal.fire({
       icon: "error",
@@ -76,20 +90,7 @@ const AllBlogs = () => {
     setFilteredata(filteredData);
   }, [blogs, filter]);
 
-  const handleTitle = (e) => {
-    // console.log(e);
-    setValue(e);
-    // const filterdata=blogs.filter((item)=>{
-    //   filter ? item.title === filter : true
-    // })
-    // setFilteredata(filterdata)
-    setSearchData(e);
-    // console.log(searchData);
-    // axios.post('https://simple-blog-server-two.vercel.app/blog',e)
-    // .then(res=>{console.log(res.data)})
-    // .catch(error=>{console.log(error);})
-  };
-
+ 
   if (isPending) {
     return (
       <SkeletonTheme baseColor="#7B9FC4" highlightColor="#444">
@@ -184,8 +185,8 @@ const AllBlogs = () => {
                 Textarea value: {value}
               </p>
               <button
-                onClick={() => handleTitle(value)}
-                className="btn p-2 shadow-[#00AC97] shadow-xl rounded-lg bg-[#00AC97] text-white"
+                // onClick={() => filterArrayByProperty(filteredata,value)}
+                className="btn p-2 cursor-pointer shadow-[#00AC97] shadow-xl rounded-lg bg-[#00AC97] text-white"
               >
                 Search
               </button>
@@ -208,7 +209,7 @@ const AllBlogs = () => {
                       <p className="text-tiny mt-2 uppercase font-bold">
                         {blog?.title}
                       </p>
-                      <p className="text-tiny mt-2 text-red-500 uppercase font-bold">
+                      <p className="text-tiny mt-2 text-red-500  font-bold">
                         Categories : {blog?.categories}
                       </p>
                       <p className="text-red-500 mt-2">

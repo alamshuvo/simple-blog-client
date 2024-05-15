@@ -155,7 +155,7 @@ const Nabbar = () => {
               ? "danger"
               : "foreground"
           }
-          className="w-full flex flex-col justify-center items-center gap-4"
+          className="w-full flex flex-col  gap-4"
           href="#"
           size="lg"
         >
