@@ -40,8 +40,7 @@ const AddBlog = () => {
       userPhoto,
     };
     // console.log(blog);
-    axios
-      .post("https://simple-blog-server-two.vercel.app/blog", blog)
+    axios.post("https://simple-blog-server-two.vercel.app/blog", blog)
       .then((res) => {
         // console.log(res.data);
         Swal.fire({

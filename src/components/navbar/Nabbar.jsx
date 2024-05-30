@@ -20,7 +20,7 @@ const Nabbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, loading, signOutproile } = useContext(AuthContext);
   // console.log(user);
-
+console.log(isMenuOpen);
   const handleSignOut = () => {
     signOutproile();
   };
@@ -91,10 +91,10 @@ const Nabbar = () => {
   const menuItems = [
    navlink
   ];
-  return ( loading?   <Spinner />: <Navbar onMenuOpenChange={setIsMenuOpen}>
+  return ( loading?   <Spinner />: <Navbar  onMenuOpenChange={setIsMenuOpen}>
   <NavbarContent>
     <NavbarMenuToggle
-      aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+      // aria-label={isMenuOpen ? "Close menu" : "Open menu"}
       className="sm:hidden"
     />
     <NavbarBrand>
@@ -148,6 +148,8 @@ const Nabbar = () => {
     {menuItems.map((item, index) => (
       <NavbarMenuItem key={`${item}-${index}`}>
         <Link
+        onClick={()=>setIsMenuOpen(true)}
+        // onMenuOpenChange={setIsMenuOpen(true)}>
           color={
             index === 2
               ? "primary"
@@ -156,7 +158,7 @@ const Nabbar = () => {
               : "foreground"
           }
           className="w-full flex flex-col  gap-4"
-          href="#"
+          href={item}
           size="lg"
         >
           {item}
