@@ -17,7 +17,7 @@ const UpdateBlog = () => {
  const { data: blogs, isPending } = useQuery({
     queryKey: ["blogs", id],
     queryFn: async () => {
-      const res = await fetch(`https://simple-blog-server-two.vercel.app/blog/id/${id}`);
+      const res = await fetch(`https://simple-blog-server-two.vercel.app/id/${id}`);
       return res.json();
     },
   });
@@ -36,7 +36,7 @@ const UpdateBlog = () => {
     const updatedData={title,categories,short,long,photo,userEmail,formattedDate}
 
    
-    axios.put(`https://simple-blog-server-two.vercel.app/blog/id/${id}`, updatedData,config)
+    axios.put(`https://simple-blog-server-two.vercel.app/id/${id}`, updatedData,config)
       .then((response) => {
         // Handle the response
         console.log(response.data);

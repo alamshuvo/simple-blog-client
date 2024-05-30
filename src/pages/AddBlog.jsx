@@ -40,7 +40,8 @@ const AddBlog = () => {
       userPhoto,
     };
     // console.log(blog);
-    axios.post("https://simple-blog-server-two.vercel.app/blog", blog)
+    axios
+      .post("https://simple-blog-server-two.vercel.app/blog", blog)
       .then((res) => {
         // console.log(res.data);
         Swal.fire({
@@ -64,21 +65,22 @@ const AddBlog = () => {
       <div className=" md:p-5 p-2 mt-5 mb-5 rounded-2xl ">
         <h1 className="md:text-4xl text-3xl font-bold  underline  text-[#14261C] ">
           Add Blog
-         
         </h1>
-        <p  className="mt-2"  data-aos="fade-down"
+        <p
+          className="mt-2"
+          data-aos="fade-down"
           data-aos-easing="linear"
           data-aos-duration="1500"
-          >
-            Welcome to the Add Blog page! Here, you can contribute your own blog
-            posts to our platform. This page allows you to share your insights,
-            experiences, and stories with our community. Select the appropriate
-            category for your post to ensure it reaches the right audience.
-            Whether you are writing about technology, lifestyle, travel, or any
-            other topic, our Add Blog page makes it easy for you to organize and
-            publish your content. Join our vibrant community of bloggers and let
-            your voice be heard. Happy blogging!
-          </p>
+        >
+          Welcome to the Add Blog page! Here, you can contribute your own blog
+          posts to our platform. This page allows you to share your insights,
+          experiences, and stories with our community. Select the appropriate
+          category for your post to ensure it reaches the right audience.
+          Whether you are writing about technology, lifestyle, travel, or any
+          other topic, our Add Blog page makes it easy for you to organize and
+          publish your content. Join our vibrant community of bloggers and let
+          your voice be heard. Happy blogging!
+        </p>
       </div>
       <div className="flex md:flex-row flex-col-reverse md:p-7 p-3 ">
         <div className="md:w-1/4 w-full">
